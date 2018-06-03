@@ -24,8 +24,6 @@ namespace DvisualStudio.UI
         public MainWindow()
         {
             InitializeComponent();
-            GooglePlacesService googlePlacesService = new GooglePlacesService();
-            var kek = googlePlacesService.FindNearestPlacesByCategory("cafe");
         }
     }
 }
