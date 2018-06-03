@@ -16,17 +16,25 @@ using System.Windows.Shapes;
 namespace DvisualStudio.UI
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для RestarauntList.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
+    public partial class RestarauntListPage : Page
     {
-        public MainWindow()
+        public RestarauntListPage()
         {
             InitializeComponent();
+        }
+
+        private void ButtonBackToCategories_Click(object sender, RoutedEventArgs e)
+        {
             
         }
 
-       
+        private void CommonClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("uuu");
+        }
+
 
     }
 }

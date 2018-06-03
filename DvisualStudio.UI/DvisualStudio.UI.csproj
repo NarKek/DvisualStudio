@@ -54,6 +54,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ContentForCategories.xaml.cs">
+      <DependentUpon>ContentForCategories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RestarauntListPage.xaml.cs">
+      <DependentUpon>RestarauntListPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ContentForCategories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,6 +76,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RestarauntListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -85,6 +99,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="11528.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -92,6 +107,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\xHLrGE9Y9Ow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pM-zjOS8dDk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CeMQ2Q8kUpA.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\CVux7Ne3f18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\1button.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\2button.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\3button.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\u9AlUT3nOKU.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\check.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arrow.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

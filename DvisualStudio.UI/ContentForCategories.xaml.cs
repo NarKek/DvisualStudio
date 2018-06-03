@@ -16,17 +16,19 @@ using System.Windows.Shapes;
 namespace DvisualStudio.UI
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ContentForCategories.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
+    public partial class ContentForCategories : Page
     {
-        public MainWindow()
+        public ContentForCategories()
         {
             InitializeComponent();
-            
         }
 
-       
-
+        private void ButtonFood_Click(object sender, RoutedEventArgs e)
+        {
+            var restlist = new RestarauntListPage();
+            NavigationService.Content = restlist;
+        }
     }
 }
