@@ -26,8 +26,5 @@ namespace DvisualStudio.UI
             InitializeComponent();
             
         }
-
-       
-
     }
 }

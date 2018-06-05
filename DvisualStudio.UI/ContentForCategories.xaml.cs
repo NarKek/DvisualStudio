@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DvisualStudio.API.Interfaces;
+using DvisualStudio.API.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,9 @@ namespace DvisualStudio.UI
         public ContentForCategories()
         {
             InitializeComponent();
+            IGooglePlacesService lol = new GooglePlacesService();
+            
+            var kek = lol.FindNearestPlacesByCategory("movie_theater");
         }
 
         private void ButtonFood_Click(object sender, RoutedEventArgs e)

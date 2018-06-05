@@ -49,9 +49,11 @@
     <Compile Include="DTO\GooglePlacesAPIRespone.cs" />
     <Compile Include="DTO\Location.cs" />
     <Compile Include="DTO\OpeningHours.cs" />
+    <Compile Include="Interfaces\IGooglePlaceInfoService.cs" />
     <Compile Include="Interfaces\IGooglePlacesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\GetLocationByIpService.cs" />
+    <Compile Include="Services\GooglePlaceInfoService.cs" />
     <Compile Include="Services\GooglePlacesService.cs" />
     <Compile Include="Services\Service.cs" />
   </ItemGroup>

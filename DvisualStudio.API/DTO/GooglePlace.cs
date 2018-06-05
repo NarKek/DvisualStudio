@@ -23,5 +23,7 @@ namespace DvisualStudio.API.DTO
         public List<string> Types { get; set; }
         [JsonProperty("vicinity")]
         public string Address { get; set; }
+        [JsonProperty("opening_hours")]
+        public OpeningHours OpenHours { get; set; }
     }
 }

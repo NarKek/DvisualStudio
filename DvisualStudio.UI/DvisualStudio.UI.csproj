@@ -138,5 +138,15 @@
   <ItemGroup>
     <Resource Include="Images\arrow.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DvisualStudio.API\DvisualStudio.API.csproj">
+      <Project>{e1018fb7-cc63-44eb-b43f-c8549c736029}</Project>
+      <Name>DvisualStudio.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DvisualStudio.Core\DvisualStudio.Core.csproj">
+      <Project>{a1edd4a2-7937-4a31-8cb1-a6de54a7a4df}</Project>
+      <Name>DvisualStudio.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
