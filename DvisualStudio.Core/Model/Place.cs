@@ -17,5 +17,6 @@ namespace DvisualStudio.Core.Model
         public string Address { get; set; }
         public string Icon { get; set; }
         public string OpenNow { get; set; }
+        public string PriceLevel { get; set; }
     }
 }

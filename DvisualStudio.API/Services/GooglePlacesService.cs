@@ -12,11 +12,10 @@ using System.Threading.Tasks;
 
 namespace DvisualStudio.API.Services
 {
-    public class GooglePlacesService :Service,IGooglePlacesService
+    public class GooglePlacesService :Service,IPlacesService
     {
-        protected const string APIKey = "AIzaSyBxHX8WQ8KSknfNj-P_qZdF_EnYn2zkjlg";
         protected const string BaseUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
-        public List<Place> FindNearestPlacesByCategory(string category)
+        public List<GooglePlace> FindNearestPlacesByCategory(string category)
         {
             string radius = "1000";
             string location = GetLocationByIpService.GetLocation();
@@ -36,52 +35,22 @@ namespace DvisualStudio.API.Services
                 var strResult = client.GetStringAsync(Url).Result;
 
                 var result = JsonConvert.DeserializeObject<GooglePlacesAPIRespone>(strResult);
-                return result.Results.Select(response => new Place
-                {
-                    Id = response.Id,
-                    Name = response.Name,
-                    Categories = response.Types,
-                    Rating = response.Rating,
-                    Address = response.Address,
-                    Icon = response.Icon,
-                    Location = response.Geometry.Location.Latitude.ToString()
-                                + response.Geometry.Location.Longitude.ToString(),
-                    OpenNow = response.OpenHours.OpenNow.ToString()
-                }).ToList();
+                return result.Results;
             }
         }
-        public List<Place> DetailedSearchForNearestPlaces(string category, string rating,
-                                                        string maxPriceLevel, string radius,string openNow)
+        public List<GooglePlace> DetailedSearchForNearestPlaces(Dictionary<string,string> addToMainUrl)
         {
-            Dictionary<string, string> addToMainUrl = new Dictionary<string, string>()
-            {
-                {"key",APIKey},
-                {"category",category},
-                {"rating",rating},
-                {"maxprice",maxPriceLevel},
-                {"location",GetLocationByIpService.GetLocation()},
-                {"radius",radius},
-                {"opennow",openNow}
-            };
+            addToMainUrl.Add("key",APIKey);
+            addToMainUrl.Add("location", GetLocationByIpService.GetLocation());
+            addToMainUrl.Add("radius","1000");
 
             string Url = BuildUrl(BaseUrl, addToMainUrl);
 
             using (HttpClient client = new HttpClient())
             {
-                var strResult = client.GetStringAsync(Url).Result;
+                var strResult =  client.GetStringAsync(Url).Result;
                 var result = JsonConvert.DeserializeObject<GooglePlacesAPIRespone>(strResult);
-                return result.Results.Select(response => new Place
-                {
-                    Id = response.Id,
-                    Name = response.Name,
-                    Categories = response.Types,
-                    Rating = response.Rating,
-                    Address = response.Address,
-                    Icon = response.Icon,
-                    Location = response.Geometry.Location.Latitude.ToString()
-                                + response.Geometry.Location.Longitude.ToString(),
-                    OpenNow = response.OpenHours.OpenNow.ToString()
-                }).ToList();
+                return result.Results;
             }
         }
     }
