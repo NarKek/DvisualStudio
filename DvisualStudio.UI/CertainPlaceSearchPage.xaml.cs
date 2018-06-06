@@ -16,19 +16,21 @@ using System.Windows.Shapes;
 namespace DvisualStudio.UI
 {
     /// <summary>
-    /// Логика взаимодействия для ContentForCategories.xaml
+    /// Логика взаимодействия для CertainPlaceSearchPage.xaml
     /// </summary>
-    public partial class ContentForCategories : Page
+    public partial class CertainPlaceSearchPage : Page
     {
-        public ContentForCategories()
+        public CertainPlaceSearchPage()
         {
             InitializeComponent();
         }
 
-        private void ButtonFood_Click(object sender, RoutedEventArgs e)
+        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
         {
-            var restlist = new RestarauntListPage();
-            NavigationService.Content = restlist;
+            if (e.Key == Key.Enter)
+            {
+                //code for searching and filling a list of results
+            }
         }
 
         private void ButtonCategories_Click(object sender, RoutedEventArgs e)
@@ -45,5 +47,14 @@ namespace DvisualStudio.UI
         {
             NavigationService.Content = new CertainPlaceSearchPage();
         }
+
+        private void SearchBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            SearchBox.Clear();
+            SearchBox.GotFocus -= SearchBox_GotFocus;
+            SearchBox.Foreground = Brushes.Black;
+        }
+
+        
     }
 }

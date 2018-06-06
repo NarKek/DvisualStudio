@@ -27,12 +27,12 @@ namespace DvisualStudio.UI
 
         private void ButtonBackToCategories_Click(object sender, RoutedEventArgs e)
         {
-            
+            NavigationService.GoBack();
         }
 
         private void CommonClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("uuu");
+            //common click for all items in the list , that depends on which button was clicked
         }
 
 
