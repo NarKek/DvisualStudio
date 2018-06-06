@@ -8,17 +8,18 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DvisualStudio.API.Services
 {
-    public class GooglePlacesService :Service,IPlacesService
+    public class GooglePlacesService : Service, IPlacesService
     {
         private const string BaseUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
         public List<GooglePlace> FindNearestPlacesByCategory(string category)
         {
             string radius = "1000";
             string location = GetLocationByIpService.GetLocation();
-            
+
 
             string Url = BuildUrl(BaseUrl, new Dictionary<string, string>()
             {
@@ -29,25 +30,35 @@ namespace DvisualStudio.API.Services
                 {"opennow","true"}
             });
 
-            using (HttpClient client = new HttpClient())
+            try
             {
-                var strResult = client.GetStringAsync(Url).Result;
+                using (HttpClient client = new HttpClient())
+                {
+                    var strResult = client.GetStringAsync(Url).Result;
 
-                var result = JsonConvert.DeserializeObject<GooglePlacesAPIRespone>(strResult);
-                return result.Results;
+                    var result = JsonConvert.DeserializeObject<GooglePlacesAPIRespone>(strResult);
+                    return result.Results;
+                }
+
             }
+            catch (HttpRequestException)
+            {
+                MessageBox.Show("Connection Error, check you internet connection and try again later");
+                return null;
+            }
+
         }
-        public List<GooglePlace> DetailedSearchForNearestPlaces(Dictionary<string,string> addToMainUrl)
+        public List<GooglePlace> DetailedSearchForNearestPlaces(Dictionary<string, string> addToMainUrl)
         {
-            addToMainUrl.Add("key",APIKey);
+            addToMainUrl.Add("key", APIKey);
             addToMainUrl.Add("location", GetLocationByIpService.GetLocation());
-            addToMainUrl.Add("radius","1000");
+            addToMainUrl.Add("radius", "1000");
 
             string Url = BuildUrl(BaseUrl, addToMainUrl);
 
             using (HttpClient client = new HttpClient())
             {
-                var strResult =  client.GetStringAsync(Url).Result;
+                var strResult = client.GetStringAsync(Url).Result;
                 var result = JsonConvert.DeserializeObject<GooglePlacesAPIRespone>(strResult);
                 return result.Results;
             }
