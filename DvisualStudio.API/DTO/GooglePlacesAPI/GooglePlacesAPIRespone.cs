@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DvisualStudio.API.DTO
 {
-    public class OpeningHours
+    public class GooglePlacesAPIRespone
     {
-        [JsonProperty("open_now")]
-        public bool OpenNow { get; set; }
-    } 
+        [JsonProperty("results")] 
+        public List<GooglePlace> Results { get; set; }
+    }
 }

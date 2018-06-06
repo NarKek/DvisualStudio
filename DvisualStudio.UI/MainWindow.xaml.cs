@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DvisualStudio.API.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,8 +26,5 @@ namespace DvisualStudio.UI
             InitializeComponent();
             
         }
-
-       
-
     }
 }

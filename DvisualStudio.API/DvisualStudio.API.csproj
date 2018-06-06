@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\DetailedGooglePlaceInfoAPI\DetailedGooglePlace.cs" />
+    <Compile Include="DTO\DetailedGooglePlaceInfoAPI\DetailedGooglePlaceInfoResponse.cs" />
+    <Compile Include="DTO\Geometry.cs" />
+    <Compile Include="DTO\GetLocationAPI.cs" />
+    <Compile Include="DTO\DetailedGooglePlaceInfoAPI\Review.cs" />
+    <Compile Include="DTO\GooglePlacesAPI\GooglePlace.cs" />
+    <Compile Include="DTO\GooglePlacesAPI\GooglePlacesAPIRespone.cs" />
+    <Compile Include="DTO\Location.cs" />
+    <Compile Include="DTO\OpeningHours.cs" />
+    <Compile Include="Interfaces\IDetailedPlaceInfoService.cs" />
+    <Compile Include="Interfaces\IPlacesService.cs" />
+    <Compile Include="Interfaces\ITextSearchService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DetailedGooglePlaceService.cs" />
+    <Compile Include="Services\GetLocationByIpService.cs" />
+    <Compile Include="Services\GooglePlacesService.cs" />
+    <Compile Include="Services\GoogleTextSearchService.cs" />
+    <Compile Include="Services\Service.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

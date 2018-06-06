@@ -1,5 +1,4 @@
 ﻿using DvisualStudio.API.DTO;
-using DvisualStudio.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace DvisualStudio.API.Interfaces
 {
-    public interface IGooglePlacesService
+    public interface ITextSearchService
     {
-        List<Place> FindNearestPlacesByCategory(string category); 
+        List<GooglePlace> FindPlacesByTextInput(string input);
     }
 }

@@ -1,5 +1,4 @@
 ﻿using DvisualStudio.API.DTO;
-using DvisualStudio.Core.Helpers;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace DvisualStudio.API.Services
 {
-    public class GetLocationByIpService : Service
+    public static class GetLocationByIpService
     {
-        public string GetLocation() 
+        public static string GetLocation() 
         {
             string userIp = "46.242.9.169"; //GetUserIp.GetIp();
             string url = $"http://ipinfo.io/{userIp}/geo";
