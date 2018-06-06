@@ -1,6 +1,5 @@
 ﻿using DvisualStudio.API.DTO.GooglePlaceInfoAPI;
 using DvisualStudio.API.Interfaces;
-using DvisualStudio.Core.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,14 +7,15 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DvisualStudio.API.Services
 {
     public class DetailedGooglePlaceService : Service, IDetailedPlaceInfoService
     {
-        protected const string BaseUrl = "https://maps.googleapis.com/maps/api/place/details/json";
+        private const string BaseUrl = "https://maps.googleapis.com/maps/api/place/details/json";
 
-        public DetailedGooglePlace GetInfromaationAboutSelectedPlace(string place_id)
+        public DetailedGooglePlace GetInformationAboutSelectedPlace(string place_id)
         {
 
             string Url = BuildUrl(BaseUrl, new Dictionary<string, string>()
@@ -24,14 +24,22 @@ namespace DvisualStudio.API.Services
                 {"placeid",place_id}
             });
 
-            using (HttpClient client = new HttpClient())
+            try
             {
-                var strResult = client.GetStringAsync(Url).Result;
+                using (HttpClient client = new HttpClient())
+                {
+                    var strResult = client.GetStringAsync(Url).Result;
 
-                var result = JsonConvert.DeserializeObject<DetailedGooglePlaceInfoResponse>(strResult).Result;
-                return result;
+                    var result = JsonConvert.DeserializeObject<DetailedGooglePlaceInfoResponse>(strResult).Result;
+                    return result;
+                }
+
             }
-            
+            catch (HttpRequestException)
+            {
+                MessageBox.Show("Connection Error, check you internet connection and try again later");
+                return null;
+            }
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using DvisualStudio.API.DTO;
 using DvisualStudio.API.Interfaces;
-using DvisualStudio.Core.Model;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -14,7 +13,7 @@ namespace DvisualStudio.API.Services
 {
     public class GooglePlacesService :Service,IPlacesService
     {
-        protected const string BaseUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
+        private const string BaseUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
         public List<GooglePlace> FindNearestPlacesByCategory(string category)
         {
             string radius = "1000";

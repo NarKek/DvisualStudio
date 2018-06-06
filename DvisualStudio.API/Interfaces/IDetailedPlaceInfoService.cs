@@ -9,6 +9,6 @@ namespace DvisualStudio.API.Interfaces
 {
     public interface IDetailedPlaceInfoService
     {
-       DetailedGooglePlace GetInfromaationAboutSelectedPlace(string place_id);
+       DetailedGooglePlace GetInformationAboutSelectedPlace(string place_id);
     }
 }
