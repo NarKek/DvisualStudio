@@ -33,7 +33,7 @@ namespace DvisualStudio.API.Services
             }
             catch (Exception)
             {
-                MessageBox.show
+                MessageBox.show("sd");
             }
             using (HttpClient client = new HttpClient())
             {

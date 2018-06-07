@@ -16,25 +16,13 @@ using System.Windows.Shapes;
 namespace DvisualStudio.UI
 {
     /// <summary>
-    /// Логика взаимодействия для RestarauntList.xaml
+    /// Логика взаимодействия для MainFilterPage.xaml
     /// </summary>
-    public partial class RestarauntListPage : Page
+    public partial class MainFilterPage : Page
     {
-        public RestarauntListPage()
+        public MainFilterPage()
         {
             InitializeComponent();
         }
-
-        private void ButtonBackToCategories_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.GoBack();
-        }
-
-        private void CommonClick(object sender, RoutedEventArgs e)
-        {
-            //common click for all items in the list , that depends on which button was clicked
-        }
-
-
     }
 }

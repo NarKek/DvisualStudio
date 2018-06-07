@@ -24,35 +24,35 @@
             <StackPanel>
                 <Button Name="ButtonFood"
                     Grid.ColumnSpan="3" Height="170" 
-                        Style="{DynamicResource DefaultButtonStyle}" Click="ButtonFood_Click"  >
+                        Style="{DynamicResource DefaultButtonStyle}" Click="CommonClick"  >
                     <Button.Background>
                         <ImageBrush ImageSource="Images/xHLrGE9Y9Ow.jpg" />
                     </Button.Background>
                 </Button>
                 <Button Name="ButtonConcerts"
                     Grid.ColumnSpan="3" Height="170"
-                        Style="{DynamicResource DefaultButtonStyle}" >
+                        Style="{DynamicResource DefaultButtonStyle}" Click="CommonClick">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/pM-zjOS8dDk.jpg" />
                     </Button.Background>
                 </Button>
                 <Button Name="ButtonBars"
                     Grid.ColumnSpan="3" Height="170"
-                        Style="{DynamicResource DefaultButtonStyle}" >
+                        Style="{DynamicResource DefaultButtonStyle}" Click="CommonClick">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/CeMQ2Q8kUpA.jpg" />
                     </Button.Background>
                 </Button>
                 <Button Name="ButtonCinema"
                     Grid.ColumnSpan="3" Height="170"
-                        Style="{DynamicResource DefaultButtonStyle}" >
+                        Style="{DynamicResource DefaultButtonStyle}" Click="CommonClick">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/CVux7Ne3f18.jpg" />
                     </Button.Background>
                 </Button>
                 <Button  Name="ButtonPark"
                     Grid.ColumnSpan="3" Height="170" 
-                        Style="{DynamicResource DefaultButtonStyle}" >
+                        Style="{DynamicResource DefaultButtonStyle}" Click="CommonClick">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/u9AlUT3nOKU.jpg" />
                     </Button.Background>

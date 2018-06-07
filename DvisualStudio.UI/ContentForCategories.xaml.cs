@@ -26,14 +26,15 @@ namespace DvisualStudio.UI
         {
             InitializeComponent();
             IGooglePlacesService lol = new GooglePlacesService();
-            
+
             var kek = lol.FindNearestPlacesByCategory("movie_theater");
         }
 
-        private void ButtonFood_Click(object sender, RoutedEventArgs e)
+        private void CommonClick(object sender, RoutedEventArgs e)
         {
-            var restlist = new RestarauntListPage();
-            NavigationService.Content = restlist;
+            var button = sender as Button;
+            var list = new ListOfPlacesPage(button.Name);
+            NavigationService.Navigate(list);
         }
 
         private void ButtonCategories_Click(object sender, RoutedEventArgs e)
