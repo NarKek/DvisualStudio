@@ -25,9 +25,11 @@ namespace DvisualStudio.UI
         public ContentForCategories()
         {
             InitializeComponent();
-            IGooglePlacesService lol = new GooglePlacesService();
 
-            var kek = lol.FindNearestPlacesByCategory("movie_theater");
+            ITextSearchService service = new GoogleTextSearchService();
+            
+
+            var kek = service.FindPlacesByTextInput("му-му");
         }
 
         private void CommonClick(object sender, RoutedEventArgs e)

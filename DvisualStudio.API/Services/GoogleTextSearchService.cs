@@ -11,7 +11,7 @@ using System.Windows;
 
 namespace DvisualStudio.API.Services
 {
-    public class GoogleTextSearchService : Service , ITextSearchService
+    public class GoogleTextSearchService : Service, ITextSearchService
     {
         private const string BaseUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json";
 
@@ -19,7 +19,7 @@ namespace DvisualStudio.API.Services
         {
             if (!input.ToLower().Contains("moscow"))
                 input = input + " in Moscow";
-            input = input.Replace(' ','+');
+            input = input.Replace(' ', '+');
 
             string Url = BuildUrl(BaseUrl, new Dictionary<string, string>()
             {
@@ -29,19 +29,19 @@ namespace DvisualStudio.API.Services
 
             try
             {
+                using (HttpClient client = new HttpClient())
+                {
+                    var strResult = client.GetStringAsync(Url).Result;
+
+                    var result = JsonConvert.DeserializeObject<GooglePlacesAPIRespone>(strResult);
+                    return result.Results;
+                }
 
             }
-            catch (Exception)
+            catch (HttpRequestException)
             {
-                MessageBox.show("sd");
-            }
-            using (HttpClient client = new HttpClient())
-            {
-                var strResult = client.GetStringAsync(Url).Result;
-
-                var result = JsonConvert.DeserializeObject<GooglePlacesAPIRespone>(strResult);
-
-                return result.Results;
+                MessageBox.Show("Connection Error, check you internet connection and try again later");
+                return null;
             }
         }
     }

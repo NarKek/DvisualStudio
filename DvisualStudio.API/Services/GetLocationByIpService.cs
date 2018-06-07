@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace DvisualStudio.API.Services
 {
@@ -14,13 +15,21 @@ namespace DvisualStudio.API.Services
         public static string GetLocation() 
         {
             string userIp = "46.242.9.169"; //GetUserIp.GetIp();
-            string url = $"http://ipinfo.io/{userIp}/geo";
-            using (HttpClient client = new HttpClient())
+            string url = $"http://ipinfo.io/geo";
+            try
             {
-                var strResult = client.GetStringAsync(url).Result;
-                var result = JsonConvert.DeserializeObject<GetLocationAPI>(strResult);
-                var answer = result.Location;
-                return answer;
+                using (HttpClient client = new HttpClient())
+                {
+                    var strResult = client.GetStringAsync(url).Result;
+                    var result = JsonConvert.DeserializeObject<GetLocationAPI>(strResult);
+                    var answer = result.Location;
+                    return answer;
+                }
+            }
+            catch (HttpRequestException)
+            {
+                MessageBox.Show("Connection Error, check you internet connection and try again later");
+                return null;
             }
         }
     }
