@@ -1,5 +1,6 @@
 ﻿using DvisualStudio.API.DTO;
 using DvisualStudio.API.DTO.ConcertInfo;
+using DvisualStudio.API.DTO.GooglePlaceInfoAPI;
 using DvisualStudio.Core.Model;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
             return location;
         }
 
-        public static Concert Transform(Event e)
+        public static Concert TransformEventToConcert(Event e)
         {
             return new Concert()
             {
@@ -54,6 +55,43 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 Afisha = e.Images.Afisha,
                 SmallAfisha = e.Images.SmallAfisha
             };
+        }
+
+        public static Place TransformGooglePlaceToPlace(GooglePlace gp)
+        {
+            Place place = new Place()
+            {
+                Id = gp.PlaceId,
+                Name = gp.Name,
+                Categories = gp.Categories,
+                Rating = gp.Rating,
+                Location = gp.Geometry.Location.Latitude.ToString() + " " + gp.Geometry.Location.Longitude.ToString(),
+                Address = gp.Address,
+                Icon = gp.Icon,
+                OpenNow = gp.OpenHours.OpenNow.ToString(),
+                PriceLevel = gp.PriceLevel.ToString()
+            };
+            return place;
+        }
+
+        public static DetailedPlace TransformGoogleDetailedPlaceToPlace(DetailedGooglePlace dgp, Place place)
+        {
+            DetailedPlace detPlace = new DetailedPlace()
+            {
+                Id = dgp.PlaceId,
+                Name = dgp.Name,
+                Categories = dgp.Categories,
+                Rating = dgp.Rating,
+                Location = dgp.Geometry.Location.Latitude.ToString() + " " + dgp.Geometry.Location.Longitude.ToString(),
+                Address = dgp.Address,
+                Icon = place.Icon,
+                OpenNow = dgp.OpenHours.OpenNow.ToString(),
+                PriceLevel = place.PriceLevel.ToString(),
+                Reviews = dgp.Reviews,
+                PhoneNumber = dgp.PhoneNumber,
+                WebSite = dgp.WebSite
+            };
+            return detPlace;
         }
     }
 }

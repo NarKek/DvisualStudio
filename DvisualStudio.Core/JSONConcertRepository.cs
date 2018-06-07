@@ -23,7 +23,7 @@ namespace DvisualStudio.Core
             IEnumerable<Event> events = jsr.RestoreList<Event>("Data\\concerts.json");
             foreach (var e in events)
             {
-                buffer.Add(Transformer.Transform(e));
+                buffer.Add(Transformer.TransformEventToConcert(e));
             }
             Concerts = buffer;
         }
