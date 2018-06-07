@@ -43,17 +43,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConcertRepository.cs" />
+    <Compile Include="Factory.cs" />
     <Compile Include="Helpers\GetUserIp.cs" />
+    <Compile Include="Helpers\JSONReader.cs" />
+    <Compile Include="Helpers\Transformers\EventToConcertTransformer.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Model\Concert.cs" />
     <Compile Include="Model\DetailedPlace.cs" />
     <Compile Include="Model\Place.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\concerts.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DvisualStudio.API\DvisualStudio.API.csproj">
       <Project>{e1018fb7-cc63-44eb-b43f-c8549c736029}</Project>
@@ -61,4 +68,5 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions />
 </Project>
