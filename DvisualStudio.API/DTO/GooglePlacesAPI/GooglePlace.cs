@@ -12,7 +12,7 @@ namespace DvisualStudio.API.DTO
         [JsonProperty("place_id")]
         public string Id { get; set; }
         [JsonProperty("geometry")]
-        public Geometry Geometry { get; set; } 
+        public Geometry Geometry { get; set; }
         [JsonProperty("name")]
         public string Name { get; set; }
         [JsonProperty("icon")]
@@ -22,7 +22,7 @@ namespace DvisualStudio.API.DTO
         [JsonProperty("types")]
         public List<string> Types { get; set; }
         [JsonProperty("vicinity")]
-        public string Address { get; set; }
+        public string Formatted_address { get; set; }
         [JsonProperty("opening_hours")]
         public OpeningHours OpenHours { get; set; }
         [JsonProperty("price_level")]

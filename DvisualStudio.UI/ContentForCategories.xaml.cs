@@ -29,7 +29,7 @@ namespace DvisualStudio.UI
             ITextSearchService service = new GoogleTextSearchService();
             
 
-            var kek = service.FindPlacesByTextInput("макдональдс");
+            var kek = service.FindPlacesByTextInput("му-му");
         }
 
         private void ButtonFood_Click(object sender, RoutedEventArgs e)

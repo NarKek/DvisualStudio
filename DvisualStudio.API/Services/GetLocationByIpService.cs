@@ -15,7 +15,7 @@ namespace DvisualStudio.API.Services
         public static string GetLocation() 
         {
             string userIp = "46.242.9.169"; //GetUserIp.GetIp();
-            string url = $"http://ipinfo.io/{userIp}/geo";
+            string url = $"http://ipinfo.io/geo";
             try
             {
                 using (HttpClient client = new HttpClient())

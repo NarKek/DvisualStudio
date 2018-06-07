@@ -34,7 +34,6 @@ namespace DvisualStudio.API.Services
                     var strResult = client.GetStringAsync(Url).Result;
 
                     var result = JsonConvert.DeserializeObject<GooglePlacesAPIRespone>(strResult);
-
                     return result.Results;
                 }
 
