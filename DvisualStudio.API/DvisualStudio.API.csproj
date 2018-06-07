@@ -55,6 +55,8 @@
     <Compile Include="DTO\DetailedGooglePlaceInfoAPI\Review.cs" />
     <Compile Include="DTO\GooglePlacesAPI\GooglePlace.cs" />
     <Compile Include="DTO\GooglePlacesAPI\GooglePlacesAPIRespone.cs" />
+    <Compile Include="DTO\GooglePlacesTextSearchAPI\GoogleTextSearchPlace.cs" />
+    <Compile Include="DTO\GooglePlacesTextSearchAPI\GoogleTextSearchResponse.cs" />
     <Compile Include="DTO\Location.cs" />
     <Compile Include="DTO\OpeningHours.cs" />
     <Compile Include="Interfaces\IDetailedPlaceInfoService.cs" />

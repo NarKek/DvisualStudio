@@ -11,12 +11,12 @@ namespace DvisualStudio.Core.Model
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public List<string> Categories { get; set; }
-        public double Rating { get; set; } 
+        public List<string> Categories { get; set; }//
+        public double Rating { get; set; }//
         public string Location { get; set; }
         public string Address { get; set; }
         public string Icon { get; set; }
-        public string OpenNow { get; set; }
-        public string PriceLevel { get; set; }
+        public string OpenNow { get; set; }//
+        public string PriceLevel { get; set; }//
     }
 }

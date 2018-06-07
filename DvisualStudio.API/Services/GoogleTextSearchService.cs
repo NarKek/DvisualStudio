@@ -1,4 +1,5 @@
 ﻿using DvisualStudio.API.DTO;
+using DvisualStudio.API.DTO.GooglePlacesTextSearchAPI;
 using DvisualStudio.API.Interfaces;
 using Newtonsoft.Json;
 using System;
@@ -15,7 +16,7 @@ namespace DvisualStudio.API.Services
     {
         private const string BaseUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json";
 
-        public List<GooglePlace> FindPlacesByTextInput(string input)
+        public List<GoogleTextSearchPlace> FindPlacesByTextInput(string input)
         {
             if (!input.ToLower().Contains("moscow"))
                 input = input + " in Moscow";
@@ -33,7 +34,7 @@ namespace DvisualStudio.API.Services
                 {
                     var strResult = client.GetStringAsync(Url).Result;
 
-                    var result = JsonConvert.DeserializeObject<GooglePlacesAPIRespone>(strResult);
+                    var result = JsonConvert.DeserializeObject<GoogleTextSearchResponse>(strResult);
                     return result.Results;
                 }
 

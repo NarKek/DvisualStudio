@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DvisualStudio.Core.Interfaces
 {
-    public interface IRepository
+    public interface IConcertRepository
     {
         IEnumerable<Concert> Concerts { get; }
     }

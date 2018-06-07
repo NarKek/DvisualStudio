@@ -15,11 +15,11 @@ namespace DvisualStudio.Core
 
         private Factory() { }
 
-        IRepository _repo;
+        IConcertRepository _repo;
 
-        public IRepository GetRepository()
+        public IConcertRepository GetRepository()
         {
-            return _repo ?? (_repo = new ConcertRepository());
+            return _repo ?? (_repo = new JSONConcertRepository());
         }
     }
 }

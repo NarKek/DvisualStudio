@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 
 namespace DvisualStudio.Core.Helpers.Transformers
 {
-    public class EventToConcertTransformer
+    public static class Transformer
     {
-        public DateTime ConvertTimestamp(int ts)
+        private static DateTime ConvertTimestamp(int ts)
         {
             DateTime dt = new DateTime(1970, 1, 1);
             dt = dt.AddSeconds(ts);
             return dt;
         }
 
-        public Location ConvertStringToLocation(string str)
+        private static Location ConvertStringToLocation(string str)
         {
             string[] strs = str.Split(':');
             if (strs.Length != 2)
@@ -28,9 +28,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
             }
             if (str == "")
             {
-                strs = new string[2];
-                strs[0] = "0";
-                strs[1] = "0";
+                return null;
             }
             Location location = new Location()
             {
@@ -40,7 +38,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
             return location;
         }
 
-        public Concert Transfrom(Event e)
+        public static Concert Transform(Event e)
         {
             return new Concert()
             {

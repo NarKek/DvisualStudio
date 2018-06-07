@@ -43,12 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConcertRepository.cs" />
+    <Compile Include="JSONConcertRepository.cs" />
     <Compile Include="Factory.cs" />
-    <Compile Include="Helpers\GetUserIp.cs" />
     <Compile Include="Helpers\JSONReader.cs" />
-    <Compile Include="Helpers\Transformers\EventToConcertTransformer.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Helpers\Transformer.cs" />
+    <Compile Include="Interfaces\IConcertRepository.cs" />
     <Compile Include="Model\Concert.cs" />
     <Compile Include="Model\DetailedPlace.cs" />
     <Compile Include="Model\Place.cs" />

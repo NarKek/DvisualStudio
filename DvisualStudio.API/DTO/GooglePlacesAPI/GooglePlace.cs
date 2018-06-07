@@ -10,7 +10,7 @@ namespace DvisualStudio.API.DTO
     public class GooglePlace
     {
         [JsonProperty("place_id")]
-        public string Id { get; set; }
+        public string PlaceId { get; set; }
         [JsonProperty("geometry")]
         public Geometry Geometry { get; set; }
         [JsonProperty("name")]
@@ -20,9 +20,9 @@ namespace DvisualStudio.API.DTO
         [JsonProperty("rating")]
         public double Rating { get; set; }
         [JsonProperty("types")]
-        public List<string> Types { get; set; }
+        public List<string> Categories { get; set; }
         [JsonProperty("vicinity")]
-        public string Formatted_address { get; set; }
+        public string Address { get; set; }
         [JsonProperty("opening_hours")]
         public OpeningHours OpenHours { get; set; }
         [JsonProperty("price_level")]

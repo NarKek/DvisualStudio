@@ -11,19 +11,19 @@ using System.Threading.Tasks;
 
 namespace DvisualStudio.Core
 {
-    public class ConcertRepository : IRepository
+    public class JSONConcertRepository : IConcertRepository
     {
         public IEnumerable<Concert> Concerts { get; }
 
-        public ConcertRepository()
+        public JSONConcertRepository()
         {
             JSONReader jsr = new JSONReader();
             List<Concert> buffer = new List<Concert>();
-            EventToConcertTransformer ETCTransform = new EventToConcertTransformer();
+
             IEnumerable<Event> events = jsr.RestoreList<Event>("Data\\concerts.json");
             foreach (var e in events)
             {
-                buffer.Add(ETCTransform.Transfrom(e));
+                buffer.Add(Transformer.Transform(e));
             }
             Concerts = buffer;
         }

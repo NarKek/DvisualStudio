@@ -25,11 +25,6 @@ namespace DvisualStudio.UI
         public ContentForCategories()
         {
             InitializeComponent();
-
-            ITextSearchService service = new GoogleTextSearchService();
-            
-
-            var kek = service.FindPlacesByTextInput("му-му");
         }
 
         private void CommonClick(object sender, RoutedEventArgs e)
