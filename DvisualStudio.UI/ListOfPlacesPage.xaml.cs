@@ -34,8 +34,7 @@ namespace DvisualStudio.UI
                 PageName.Text = "парки";
             if (name == "ButtonConcerts")
             {
-                PageName.Text = "концерты";
-               
+                PageName.Text = "концерты";              
             }            
         }
 
@@ -46,6 +45,7 @@ namespace DvisualStudio.UI
 
         private void CommonClick(object sender, RoutedEventArgs e)
         {
+            
             NavigationService.Content = new PageOfAPlace();
         }
 

@@ -61,6 +61,9 @@
     <Compile Include="ContentForCategories.xaml.cs">
       <DependentUpon>ContentForCategories.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListOfConcertsPage.xaml.cs">
+      <DependentUpon>ListOfConcertsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainFilterPage.xaml.cs">
       <DependentUpon>MainFilterPage.xaml</DependentUpon>
     </Compile>
@@ -72,6 +75,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ContentForCategories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListOfConcertsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
