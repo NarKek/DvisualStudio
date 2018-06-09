@@ -63,7 +63,9 @@ namespace DvisualStudio.Core.Helpers.Transformers
 
         public static Place TransformGooglePlaceToPlace(GooglePlace gp)
         {
-            IPhotosService photo = new GooglePhotosService();
+            IPhotosService photoService = new GooglePhotosService();
+
+            var gplace = gp;
             Place place = new Place()
             {
                 Id = gp.PlaceId,
@@ -73,12 +75,19 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 Location = gp.Geometry.Location.Latitude.ToString() + " " + gp.Geometry.Location.Longitude.ToString(),
                 Address = gp.Address,
                 Icon = gp.Icon,
-                OpenNow = gp.OpenHours.OpenNow.ToString(),
+                OpenNow = gp.OpenHours.OpenNow,
                 PriceLevel = gp.PriceLevel.ToString(),
-                PhotoReference = gp.GooglePhotos[0].PhotoReference,
-                Photo = photo.GetImageByReference(gp.GooglePhotos[0].PhotoReference, "100","80")
-
             };
+            if (gp.GooglePhotos == null)
+            {
+                place.PhotoReference = place.Icon;
+                place.Photo = place.Icon;
+            }
+            else
+            {
+                place.PhotoReference = gp.GooglePhotos[0].PhotoReference;
+                place.Photo = photoService.GetImageByReference(place.PhotoReference, "100", "80");
+            }
             return place;
         }
 
@@ -94,7 +103,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 Location = dgp.Geometry.Location.Latitude.ToString() + " " + dgp.Geometry.Location.Longitude.ToString(),
                 Address = dgp.Address,
                 Icon = place.Icon,
-                OpenNow = dgp.OpenHours.OpenNow.ToString(),
+                OpenNow = dgp.OpenHours.OpenNow,
                 PriceLevel = place.PriceLevel.ToString(),
                 Reviews = dgp.Reviews,
                 PhoneNumber = dgp.PhoneNumber,

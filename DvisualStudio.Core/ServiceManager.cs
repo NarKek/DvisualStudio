@@ -1,5 +1,6 @@
 ﻿using DvisualStudio.API.Interfaces;
 using DvisualStudio.API.Services;
+using DvisualStudio.Core.Helpers.Transformers;
 using DvisualStudio.Core.Interfaces;
 using DvisualStudio.Core.Model;
 using System;
@@ -22,6 +23,18 @@ namespace DvisualStudio.Core
         {
             IConcertRepository repo = await Task.Factory.StartNew(() => Factory.Instance.GetRepository());
             return repo.Concerts;
+        }
+
+        public async Task<IEnumerable<Place>> GetPlacesByCategory(string category)
+        {
+            IPlacesService placesService = new GooglePlacesService();
+            var result = await Task.Factory.StartNew(() => placesService.FindNearestPlacesByCategory(category));
+            List<Place> places = new List<Place>();
+            foreach (var r in result)
+            {
+                places.Add(Transformer.TransformGooglePlaceToPlace(r));
+            }
+            return places;
         }
 
         public event Action ConcertsLoaded;

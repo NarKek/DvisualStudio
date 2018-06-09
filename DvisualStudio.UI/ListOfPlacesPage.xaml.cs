@@ -28,18 +28,13 @@ namespace DvisualStudio.UI
         {
             InitializeComponent();
             if(name == "ButtonFood")
-                PageName.Text = "рестораны";
+                PageName.Text = "restaurant";
             if (name == "ButtonCinema")
-                PageName.Text = "кино";
+                PageName.Text = "movie_theater";
             if (name == "ButtonBars")
-                PageName.Text = "бары";
+                PageName.Text = "bar";
             if (name == "ButtonPark")
-                PageName.Text = "парки";
-            if (name == "ButtonConcerts")
-            {
-                PageName.Text = "концерты";
-               
-            }
+                PageName.Text = "park";
             LoadData();
         }
 
@@ -55,8 +50,7 @@ namespace DvisualStudio.UI
 
         private async void LoadData()
         {
-            //sm.ConcertsLoaded += OnConcertsLoaded;
-            var getData = await sm.GetConcerts();
+            var getData = await sm.GetPlacesByCategory(PageName.Text);
             ItemsControlOnListPage.ItemsSource = getData;
             LoadingLabel.Visibility = Visibility.Hidden;
         }
