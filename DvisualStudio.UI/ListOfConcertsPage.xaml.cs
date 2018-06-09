@@ -23,6 +23,7 @@ namespace DvisualStudio.UI
         public ListOfConcertsPage()
         {
             InitializeComponent();
+            LoadData();
         }
 
         private void ButtonBackToCategories_Click(object sender, RoutedEventArgs e)
@@ -32,6 +33,23 @@ namespace DvisualStudio.UI
         private void CommonClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Content = new PageOfAConcert();
+        }
+
+        private async void LoadData()
+        {
+            var result = await GetRestaurants();
+            LoadingLabel.Visibility = Visibility.Hidden;
+        }
+
+        private Task<string> GetRestaurants()
+        {
+            return Task.Run(() =>
+            {
+                Task.Delay(2000).Wait();
+                return "Restaurants";
+            });
+
+            //method that will be replaced in future (now is for showing loading window for 2 secs )
         }
 
     }

@@ -48,5 +48,10 @@ namespace DvisualStudio.UI
         {
             NavigationService.Content = new CertainPlaceSearchPage();
         }
+
+        private void ConcertClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Content = new ListOfConcertsPage();
+        }
     }
 }

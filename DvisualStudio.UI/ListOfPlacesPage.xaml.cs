@@ -31,11 +31,7 @@ namespace DvisualStudio.UI
             if (name == "ButtonBars")
                 PageName.Text = "бары";
             if (name == "ButtonPark")
-                PageName.Text = "парки";
-            if (name == "ButtonConcerts")
-            {
-                PageName.Text = "концерты";              
-            }            
+                PageName.Text = "парки";     
         }
 
         private void ButtonBackToCategories_Click(object sender, RoutedEventArgs e)
