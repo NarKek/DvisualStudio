@@ -9,7 +9,7 @@ namespace DvisualStudio.API.Services
 {
     public abstract class Service
     {
-        protected const string APIKey = "AIzaSyBxHX8WQ8KSknfNj-P_qZdF_EnYn2zkjlg";
+        protected const string APIKey = "AIzaSyBhgyDqNVNfxS2IfPSxiYuUwO1HLgo9h3c";
         public string BuildUrl(string baseUrl, IDictionary<string, string> parameters)
         {
             var sb = new StringBuilder(baseUrl); 

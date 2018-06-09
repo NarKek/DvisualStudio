@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DvisualStudio.Core;
+using DvisualStudio.Core.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,18 +22,25 @@ namespace DvisualStudio.UI
     /// </summary>
     public partial class ListOfPlacesPage : Page
     {
+        ServiceManager sm = new ServiceManager();
+
         public ListOfPlacesPage(string name)
         {
             InitializeComponent();
-            LoadData();
             if(name == "ButtonFood")
-            PageName.Text = "рестораны";
+                PageName.Text = "рестораны";
             if (name == "ButtonCinema")
                 PageName.Text = "кино";
             if (name == "ButtonBars")
                 PageName.Text = "бары";
             if (name == "ButtonPark")
-                PageName.Text = "парки";     
+                PageName.Text = "парки";
+            if (name == "ButtonConcerts")
+            {
+                PageName.Text = "концерты";
+               
+            }
+            LoadData();
         }
 
         private void ButtonBackToCategories_Click(object sender, RoutedEventArgs e)
@@ -41,25 +50,25 @@ namespace DvisualStudio.UI
 
         private void CommonClick(object sender, RoutedEventArgs e)
         {
-            
             NavigationService.Content = new PageOfAPlace();
         }
 
         private async void LoadData()
         {
-            var result = await GetRestaurants();
+            //sm.ConcertsLoaded += OnConcertsLoaded;
+            var getData = await sm.GetConcerts();
+            ItemsControlOnListPage.ItemsSource = getData;
             LoadingLabel.Visibility = Visibility.Hidden;
         }
-
-        private Task<string> GetRestaurants()
-        {
-            return Task.Run(() =>
-            {
-                Task.Delay(2000).Wait();
-                return "Restaurants";
-            });
-
-            //method that will be replaced in future (now is for showing loading window for 2 secs )
-        }
+        //private  GetRestaurants()
+        //{
+        //    return Task.Run(() =>
+        //    {
+        //        Task.Delay(2000).Wait();
+        //        return "Restaurants";
+        //    });
+        //
+        //    //method that will be replaced in future (now is for showing loading window for 2 secs )
+        //}
     }
 }

@@ -52,6 +52,7 @@
     <Compile Include="Model\DetailedPlace.cs" />
     <Compile Include="Model\Place.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Data\concerts.json">
