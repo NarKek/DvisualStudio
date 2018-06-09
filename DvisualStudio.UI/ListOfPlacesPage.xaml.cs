@@ -54,15 +54,5 @@ namespace DvisualStudio.UI
             ItemsControlOnListPage.ItemsSource = getData;
             LoadingLabel.Visibility = Visibility.Hidden;
         }
-        //private  GetRestaurants()
-        //{
-        //    return Task.Run(() =>
-        //    {
-        //        Task.Delay(2000).Wait();
-        //        return "Restaurants";
-        //    });
-        //
-        //    //method that will be replaced in future (now is for showing loading window for 2 secs )
-        //}
     }
 }
