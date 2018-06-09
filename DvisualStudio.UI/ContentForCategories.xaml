@@ -31,7 +31,7 @@
                 </Button>
                 <Button Name="ButtonConcerts"
                     Grid.ColumnSpan="3" Height="170"
-                        Style="{DynamicResource DefaultButtonStyle}" Click="CommonClick">
+                        Style="{DynamicResource DefaultButtonStyle}" Click="ConcertClick">
                     <Button.Background>
                         <ImageBrush ImageSource="Images/pM-zjOS8dDk.jpg" />
                     </Button.Background>

@@ -75,5 +75,11 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
+
+        <Label Name="LoadingLabel" Grid.ColumnSpan="3" Grid.RowSpan="4" FontSize="35" Background="Black" Panel.ZIndex="2"
+               Opacity="0.6" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+               >
+            Loading...
+        </Label>
     </Grid>
 </Page>

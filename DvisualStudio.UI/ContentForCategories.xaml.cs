@@ -41,13 +41,17 @@ namespace DvisualStudio.UI
 
         private void ButtonMainFilter_Click(object sender, RoutedEventArgs e)
         {
-            //future filter page button
-            
+            NavigationService.Content = new MainFilterPage();   
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Content = new CertainPlaceSearchPage();
+        }
+
+        private void ConcertClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Content = new ListOfConcertsPage();
         }
     }
 }

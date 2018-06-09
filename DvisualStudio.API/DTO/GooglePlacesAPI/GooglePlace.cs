@@ -27,5 +27,7 @@ namespace DvisualStudio.API.DTO
         public OpeningHours OpenHours { get; set; }
         [JsonProperty("price_level")]
         public int? PriceLevel { get; set; }
+        [JsonProperty("photos")]
+        public List<GooglePhoto> GooglePhotos { get; set; }
     }
 }
