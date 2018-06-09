@@ -24,17 +24,32 @@ namespace DvisualStudio.UI
     {
         ServiceManager sm = new ServiceManager();
 
+         string searchCategory;
+
         public ListOfPlacesPage(string name)
         {
             InitializeComponent();
+
             if(name == "ButtonFood")
-                PageName.Text = "restaurant";
+            {
+                PageName.Text = "restaurants";
+                searchCategory = "restaurant";
+            }
             if (name == "ButtonCinema")
-                PageName.Text = "movie_theater";
+            {
+                PageName.Text = "cinemas";
+                searchCategory = "movie_theater";
+            }
             if (name == "ButtonBars")
-                PageName.Text = "bar";
+            {
+                PageName.Text = "bars";
+                searchCategory = "bar";
+            }
             if (name == "ButtonPark")
-                PageName.Text = "park";
+            {
+                PageName.Text = "parks";
+                searchCategory = "park";
+            }
             LoadData();
         }
 
@@ -50,19 +65,9 @@ namespace DvisualStudio.UI
 
         private async void LoadData()
         {
-            var getData = await sm.GetPlacesByCategory(PageName.Text);
+            var getData = await sm.GetPlacesByCategory(searchCategory);
             ItemsControlOnListPage.ItemsSource = getData;
             LoadingLabel.Visibility = Visibility.Hidden;
         }
-        //private  GetRestaurants()
-        //{
-        //    return Task.Run(() =>
-        //    {
-        //        Task.Delay(2000).Wait();
-        //        return "Restaurants";
-        //    });
-        //
-        //    //method that will be replaced in future (now is for showing loading window for 2 secs )
-        //}
     }
 }
