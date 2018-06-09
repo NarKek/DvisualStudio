@@ -24,5 +24,20 @@ namespace DvisualStudio.UI
         {
             InitializeComponent();
         }
+
+        private void ButtonCategories_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Content = new ContentForCategories();
+        }
+
+        private void ButtonMainFilter_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Content = new MainFilterPage();
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Content = new CertainPlaceSearchPage();
+        }
     }
 }

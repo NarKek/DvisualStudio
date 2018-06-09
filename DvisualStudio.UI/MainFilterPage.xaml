@@ -7,8 +7,69 @@
       mc:Ignorable="d" 
       d:DesignHeight="736" d:DesignWidth="400"
       Title="MainFilterPage">
+       
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Grid.ColumnSpan="3" Fill="#1e1e1e" />
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
+            <ComboBox Margin="30 30 30 10" IsReadOnly="True"/>
+            <ComboBox Margin="30 10 " IsReadOnly="True" />
+            <ComboBox Margin="30 10" IsReadOnly="True"/>
+        </StackPanel>
 
-    <Grid>
+        <Button Name="ButtonCategories"
+                Background="#1e1e1e"
+            Grid.Row="3" Height="60" 
+                BorderThickness="0"
+                        Style="{DynamicResource DefaultButtonStyle}" Click="ButtonCategories_Click" >
+            <Image Source="Images/1button.jpg" Width="110"/>
+        </Button>
+        <Button Name="ButtonMainFilter"
+                Background="#1e1e1e"
+                BorderThickness="0"
+            Grid.Row="3" Grid.Column="1" Height="60" 
+                        Style="{DynamicResource DefaultButtonStyle}" Click="ButtonMainFilter_Click" >
+            <Image Source="Images/2button.jpg" Width="110"/>
+        </Button>
+        <Button Name="Search"
+                Background="#1e1e1e"
+                BorderThickness="0"
+            Grid.Row="3" Grid.Column="2" Height="60" 
+                        Style="{DynamicResource DefaultButtonStyle}" Click="Search_Click" >
+            <Image Source="Images/3button.jpg" Width="110"/>
 
+        </Button>
+        <ScrollViewer Name="scroll" ScrollViewer.VerticalScrollBarVisibility="Hidden" Grid.ColumnSpan="3" Grid.Row="2"  Background="#333333">
+            <ItemsControl Name="ItemsControlOnPMainFilterPage">
+                <ItemsControl.ItemsPanel >
+                    <ItemsPanelTemplate>
+                        <StackPanel Name="stack" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Style="{DynamicResource DefaultButtonStyle}" Width="340" Height="120" Margin="12 16 10 7">
+                            <DockPanel  Height="120" Width="340" Background="White" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Image  DockPanel.Dock="Left" Source="{Binding Icon}" Height="100" Width="80" Margin="10 3 0 3" />
+                                <TextBlock Text="{Binding Name}" DockPanel.Dock="Top"  Margin="10 2 0 0" FontSize="32" Foreground="#D69D85"  Height="32"/>
+                                <TextBlock Text="{Binding Category}" DockPanel.Dock="Top" Width="150" Margin="-80 10 0 0" FontSize="20" Foreground="#4EC9B0" />
+                                <TextBlock Text="{Binding Adress}" TextWrapping="WrapWithOverflow" DockPanel.Dock="Top"  Margin="-40 10 40 0" FontSize="13" Height="30" Width="150" />
+                                <TextBlock Text="{Binding Rating}" DockPanel.Dock="Right"  Width="50" Height="50" Margin="130 -85 -40 10" FontSize="30" Foreground="#4EC9B0" />
+                            </DockPanel>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </Page>

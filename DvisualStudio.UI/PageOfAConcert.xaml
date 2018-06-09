@@ -1,0 +1,80 @@
+﻿<Page x:Class="DvisualStudio.UI.PageOfAConcert"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DvisualStudio.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="736" d:DesignWidth="400"
+      Title="PageOfAConcert">
+
+    <Grid Background="#333333">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.ColumnSpan="3" Fill="#1e1e1e"/>
+
+        <Button Name="ButtonBackToListOfConcerts"
+            Grid.Row="0" Grid.Column="0" Height="72" Panel.ZIndex="1"
+                Width="75" HorizontalAlignment="Left"
+                BorderThickness="0"
+                Margin="17 9 0 0"
+                        Style="{StaticResource DefaultButtonStyle}" Click="ButtonBackToListOfConcerts_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="Images/arrow.jpg"  />
+            </Button.Background>
+        </Button>
+
+        <Image Grid.Row="1" Grid.ColumnSpan="3" Source="{Binding Afisha}" MaxWidth="400" MaxHeight="184"/>
+
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="3">
+            <TextBlock Height="35" Margin="20 10 0 0" Text="{Binding Name}" Foreground="White" FontSize="30" TextAlignment="Left"/>
+            <TextBlock Height="22" Margin="20 0 0 0" FontSize="20" Text="{Binding Genre}" Foreground="#D69D85"/>
+            <TextBlock  Height="30" HorizontalAlignment="Left" FontSize="25" Margin="20 0 0 0" Foreground="#4EC9B0" Text="{Binding Date}"/>
+        </StackPanel>
+
+        <StackPanel Margin="0 10 0 0" Grid.Row="3" Grid.ColumnSpan="3">
+            <TextBlock Background="Black" Text="{Binding Site}" Margin="0 0 0 0" Padding="20 0 0 0" FontSize="20" Foreground="White" Height="30" TextAlignment="Left"/>
+            <TextBlock Background="Black" Margin="0 10 0 0" Text="{Binding Number}" Padding="20 3 0 0" FontSize="20" Foreground="White"  Height="30"/>
+            <TextBlock Background="Black" Margin="0 10 0 0" Text="{Binding ClubName}" Padding="20 3 20 0" FontSize="20" Foreground="White" Height="30"/>
+            <TextBlock Background="Black" Margin="0 10 0 0" Text="{Binding Adress}" Padding="20 3 20 0" FontSize="20" Foreground="White" Height="30"/>
+        </StackPanel>
+        <TextBlock Grid.ColumnSpan="3" Margin="0 10 0 0" Padding="40 3 40 0" TextWrapping="WrapWithOverflow" TextAlignment="Center"
+                   Grid.Row="4" Text="{Binding Description}"
+                   Foreground="#D69D85"/>
+
+        <Button Name="ButtonCategories"
+                Background="#1e1e1e"
+            Grid.Row="5" Height="60" 
+                BorderThickness="0"
+                        Style="{DynamicResource DefaultButtonStyle}" Click="ButtonCategories_Click" >
+            <Image Source="Images/1button.jpg" Width="110"/>
+        </Button>
+        <Button Name="ButtonMainFilter"
+                Background="#1e1e1e"
+                BorderThickness="0"
+            Grid.Row="5" Grid.Column="1" Height="60" 
+                        Style="{DynamicResource DefaultButtonStyle}" Click="ButtonMainFilter_Click" >
+            <Image Source="Images/2button.jpg" Width="110"/>
+        </Button>
+        <Button Name="Search"
+                Background="#1e1e1e"
+                BorderThickness="0"
+            Grid.Row="5" Grid.Column="2" Height="60" 
+                        Style="{DynamicResource DefaultButtonStyle}" Click="Search_Click" >
+            <Image Source="Images/3button.jpg" Width="110"/>
+
+        </Button>
+
+    </Grid>
+</Page>

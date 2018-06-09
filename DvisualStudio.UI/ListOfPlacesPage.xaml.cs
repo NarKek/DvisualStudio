@@ -33,9 +33,10 @@ namespace DvisualStudio.UI
             if (name == "ButtonPark")
                 PageName.Text = "парки";
             if (name == "ButtonConcerts")
+            {
                 PageName.Text = "концерты";
-
-            
+               
+            }            
         }
 
         private void ButtonBackToCategories_Click(object sender, RoutedEventArgs e)
@@ -45,7 +46,7 @@ namespace DvisualStudio.UI
 
         private void CommonClick(object sender, RoutedEventArgs e)
         {
-            //common click for all items in the list , that depends on which button was clicked
+            NavigationService.Content = new PageOfAPlace();
         }
 
         private async void LoadData()

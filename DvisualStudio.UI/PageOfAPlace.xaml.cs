@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace DvisualStudio.UI
 {
     /// <summary>
-    /// Логика взаимодействия для CertainPlaceSearchPage.xaml
+    /// Логика взаимодействия для PageOfAPlace.xaml
     /// </summary>
-    public partial class CertainPlaceSearchPage : Page
+    public partial class PageOfAPlace : Page
     {
-        public CertainPlaceSearchPage()
+        public PageOfAPlace()
         {
             InitializeComponent();
-            
-        }
-
-        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                //code for searching and filling a list of results
-              
-            }
         }
 
         private void ButtonCategories_Click(object sender, RoutedEventArgs e)
@@ -42,7 +32,7 @@ namespace DvisualStudio.UI
 
         private void ButtonMainFilter_Click(object sender, RoutedEventArgs e)
         {
-            //future filter page button
+            NavigationService.Content = new MainFilterPage();
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)
@@ -50,13 +40,9 @@ namespace DvisualStudio.UI
             NavigationService.Content = new CertainPlaceSearchPage();
         }
 
-        private void SearchBox_GotFocus(object sender, RoutedEventArgs e)
+        private void ButtonBackToListOfPlaces_Click(object sender, RoutedEventArgs e)
         {
-            SearchBox.Clear();
-            SearchBox.GotFocus -= SearchBox_GotFocus;
-            SearchBox.Foreground = Brushes.Black;
+            NavigationService.GoBack();
         }
-
-        
     }
 }
