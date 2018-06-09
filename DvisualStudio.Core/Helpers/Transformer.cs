@@ -41,20 +41,22 @@ namespace DvisualStudio.Core.Helpers.Transformers
 
         public static Concert TransformEventToConcert(Event e)
         {
-            return new Concert()
+            Concert concert = new Concert()
             {
-                Title = e.Title,
+                Name = e.Title,
                 Date = ConvertTimestamp(e.Timestamp),
-                Genres = e.Genres.Genre,
+                Categories = e.Genres.Genre,
                 Description = e.Description,
                 Url = e.Url,
                 ClubName = e.Club.Name,
-                ClubAdress = e.Club.Adress,
+                Adress = e.Club.Adress,
                 ClubLocation = ConvertStringToLocation(e.Club.Location),
                 ClubTelephone = e.Club.Telephone,
-                Afisha = e.Images.Afisha,
+                Icon = e.Images.Afisha,
                 SmallAfisha = e.Images.SmallAfisha
             };
+            concert.Category = concert.Categories.FirstOrDefault();
+            return concert;
         }
 
         public static Place TransformGooglePlaceToPlace(GooglePlace gp)
