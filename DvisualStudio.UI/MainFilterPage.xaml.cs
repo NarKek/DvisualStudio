@@ -39,5 +39,18 @@ namespace DvisualStudio.UI
         {
             NavigationService.Content = new CertainPlaceSearchPage();
         }
+
+        private void RefreshSettings_Click(object sender, RoutedEventArgs e)
+        {
+            CategoryComboBox.SelectedIndex = 1;
+            PriceComboBox.SelectedIndex = -1;
+            RatingComboBox.SelectedIndex = -1;
+            OpenOrNotComboBox.SelectedIndex = -1;
+        }
+
+        private void SearchWithSettings_Click(object sender, RoutedEventArgs e)
+        {
+            // code for searching with selected parameters
+        }
     }
 }

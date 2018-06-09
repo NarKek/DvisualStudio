@@ -22,9 +22,20 @@
         </Grid.RowDefinitions>
         <Rectangle Grid.ColumnSpan="3" Fill="#1e1e1e" />
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
-            <ComboBox Margin="30 30 30 10" IsReadOnly="True"/>
-            <ComboBox Margin="30 10 " IsReadOnly="True" />
-            <ComboBox Margin="30 10" IsReadOnly="True"/>
+            <ComboBox   Name="CategoryComboBox" Margin="30 30 30 10" IsReadOnly="True"/>
+            <ComboBox Name="RatingComboBox" Margin="30 10 " IsReadOnly="True" />
+            <ComboBox Name="PriceComboBox" Margin="30 10" IsReadOnly="True"/>
+            <ComboBox Name="OpenOrNotComboBox" Margin="30 10" IsReadOnly="True"/>
+            <Button  Name="RefreshSettings"
+                HorizontalAlignment="Right" Margin="70 5 70 0" Width="90" Height="30" Background="Black" 
+                    FontFamily="/DvisualStudio.UI;component/#Century Gothic" FontSize="20"
+                    Content="сброс" Foreground="White"
+                    Click="RefreshSettings_Click"/>
+            <Button Name="SearchWithSettings"
+                HorizontalAlignment="Left" Margin="70 -30 0 0" Width="90" Height="30" Background="Black"
+                    FontFamily="/DvisualStudio.UI;component/#Century Gothic" FontSize="20"
+                    Content="поиск" Foreground="White"
+                    Click="SearchWithSettings_Click"/>
         </StackPanel>
 
         <Button Name="ButtonCategories"
