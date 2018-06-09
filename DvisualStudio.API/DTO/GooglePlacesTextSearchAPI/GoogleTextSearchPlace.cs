@@ -25,5 +25,7 @@ namespace DvisualStudio.API.DTO.GooglePlacesTextSearchAPI
         public string Address { get; set; }
         [JsonProperty("opening_hours")]
         public OpeningHours OpenHours { get; set; }
+        [JsonProperty("photos")]
+        public List<GooglePhoto> GooglePhotos { get; set; }
     }
 }
