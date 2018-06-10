@@ -30,5 +30,12 @@ namespace DvisualStudio.Core
             }
             return places;
         }
+
+        public async Task<DetailedPlace> GetDetailedPlace(Place place)
+        {
+            IDetailedPlaceInfoService dps = new DetailedGooglePlaceService();
+            var result = await Task.Factory.StartNew(() => dps.GetInformationAboutSelectedPlace(place.Id));
+            return Transformer.TransformGoogleDetailedPlaceToPlace(result, place);
+        }
     }
 }

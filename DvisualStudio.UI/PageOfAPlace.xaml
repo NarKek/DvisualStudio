@@ -35,18 +35,18 @@
             </Button.Background>
         </Button>
         
-        <Image Grid.Row="1" Grid.ColumnSpan="3" Source="{Binding Image}" MaxWidth="400" MaxHeight="184"/>
+        <Image Grid.Row="1" Grid.ColumnSpan="3" Source="{Binding Photo}" MaxWidth="400" MaxHeight="184"/>
 
         <StackPanel Grid.Row="2" Grid.ColumnSpan="3">
             <TextBlock Height="35" Margin="20 10 0 0" Text="{Binding Name}" Foreground="White" FontSize="30" TextAlignment="Left"/>
-            <TextBlock Height="22" Margin="20 0 0 0" FontSize="20" Text="{Binding Price}" Foreground="#D69D85"/>
+            <TextBlock Height="22" Margin="20 0 0 0" FontSize="20" Text="{Binding PriceLevel}" Foreground="#D69D85"/>
             <TextBlock Width="70" Height="50" HorizontalAlignment="Left" FontSize="40" Margin="20 0 0 0" Foreground="#4EC9B0" Text="{Binding Rating}"/>
         </StackPanel>
 
         <StackPanel Margin="0 10 0 0" Grid.Row="3" Grid.ColumnSpan="3">
-            <TextBlock Background="Black" Text="{Binding Site}" Margin="0 0 0 0" Padding="20 0 0 0" FontSize="20" Foreground="White" Height="30" TextAlignment="Left"/>
-            <TextBlock Background="Black" Margin="0 10 0 0" Text="{Binding Number}" Padding="20 3 0 0" FontSize="20" Foreground="White"  Height="30"/>
-            <TextBlock Background="Black" Margin="0 10 0 0" Text="{Binding Adress}" Padding="20 3 20 0" FontSize="20" Foreground="White" Height="30"/>
+            <TextBlock Background="Black" Text="{Binding WebSite}" Margin="0 0 0 0" Padding="20 0 0 0" FontSize="20" Foreground="White" Height="30" TextAlignment="Left"/>
+            <TextBlock Background="Black" Margin="0 10 0 0" Text="{Binding PhoneNumber}" Padding="20 3 0 0" FontSize="20" Foreground="White"  Height="30"/>
+            <TextBlock Background="Black" Margin="0 10 0 0" Text="{Binding Address}" Padding="20 3 20 0" FontSize="20" Foreground="White" Height="30"/>
         </StackPanel>
         <ScrollViewer Name="scroll" ScrollViewer.VerticalScrollBarVisibility="Hidden" Grid.ColumnSpan="3" Grid.Row="4"  Background="#333333" 
                     Margin="0 10 0 10" >

@@ -101,7 +101,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 Categories = dgp.Categories,
                 Rating = dgp.Rating,
                 Location = dgp.Geometry.Location.Latitude.ToString() + " " + dgp.Geometry.Location.Longitude.ToString(),
-                Address = dgp.Address,
+                Address = place.Address,
                 Icon = place.Icon,
                 OpenNow = dgp.OpenHours.OpenNow,
                 PriceLevel = place.PriceLevel.ToString(),
@@ -110,6 +110,11 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 WebSite = dgp.WebSite,
                 Photo =  photo.GetImageByReference(place.PhotoReference,"184","400")
             };
+            if (detPlace.Reviews != null)
+            {
+                detPlace.Author = detPlace.Reviews.FirstOrDefault().ReviewAuthor;
+                detPlace.Comment = detPlace.Reviews.FirstOrDefault().ReviewText;
+            }
             return detPlace;
         }
     }

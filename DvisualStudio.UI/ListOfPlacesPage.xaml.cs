@@ -45,7 +45,7 @@ namespace DvisualStudio.UI
 
         private void CommonClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Content = new PageOfAPlace();
+            NavigationService.Content = new PageOfAPlace((sender as Button).DataContext as Place);
         }
 
         private async void LoadData()
