@@ -39,7 +39,7 @@
 
         <StackPanel Grid.Row="2" Grid.ColumnSpan="3">
             <TextBlock Height="35" Margin="20 10 0 0" Text="{Binding Name}" Foreground="White" FontSize="30" TextAlignment="Left"/>
-            <TextBlock Height="22" Margin="20 0 0 0" FontSize="20" Text="{Binding PriceLevel}" Foreground="#D69D85"/>
+            <TextBlock Height="22" Margin="20 0 0 0" FontSize="20" Text="{Binding PriceString}" Foreground="#D69D85"/>
             <TextBlock Width="70" Height="50" HorizontalAlignment="Left" FontSize="40" Margin="20 0 0 0" Foreground="#4EC9B0" Text="{Binding Rating}"/>
         </StackPanel>
 

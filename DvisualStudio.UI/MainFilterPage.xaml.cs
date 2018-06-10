@@ -74,7 +74,9 @@ namespace DvisualStudio.UI
 
         private async void SearchWithSettings_Click(object sender, RoutedEventArgs e)
         {
+            LoadingLabel.Visibility = Visibility.Visible;
             ItemsControlOnPMainFilterPage.ItemsSource = await sm.SearchWithParameters(PriceComboBox.SelectedItem as int?, CategoryComboBox.SelectedItem as string, RatingComboBox.SelectedItem as int?, OpenOrNotComboBox.SelectedItem as bool?);
+            LoadingLabel.Visibility = Visibility.Hidden;
         }
     }
 }

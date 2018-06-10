@@ -95,6 +95,27 @@ namespace DvisualStudio.Core.Helpers.Transformers
             {
                 place.PriceLevel = "5";
             }
+            switch (place.PriceLevel)
+            {
+                case "0":
+                    place.PriceString = "free";
+                    break;
+                case "1":
+                    place.PriceString = "cheap";
+                    break;
+                case "2":
+                    place.PriceString = "moderate";
+                    break;
+                case "3":
+                    place.PriceString = "expensive";
+                    break;
+                case "4":
+                    place.PriceString = "very expensive";
+                    break;
+                case "5":
+                    place.PriceString = "unknown";
+                    break;
+            }
             return place;
         }
 
@@ -112,6 +133,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 Icon = place.Icon,
                 OpenNow = dgp.OpenHours.OpenNow,
                 PriceLevel = place.PriceLevel,
+                PriceString = place.PriceString,
                 Reviews = dgp.Reviews,
                 PhoneNumber = dgp.PhoneNumber,
                 WebSite = dgp.WebSite,

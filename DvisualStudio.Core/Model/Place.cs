@@ -18,6 +18,7 @@ namespace DvisualStudio.Core.Model
         public string Icon { get; set; }
         public bool OpenNow { get; set; }//
         public string PriceLevel { get; set; }//
+        public string PriceString { get; set; }
         public string Photo { get; set; }
         public string PhotoReference { get; set; }
     }

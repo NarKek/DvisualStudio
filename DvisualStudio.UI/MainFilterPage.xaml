@@ -22,10 +22,10 @@
         </Grid.RowDefinitions>
         <Rectangle Grid.ColumnSpan="3" Fill="#1e1e1e" />
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
-            <ComboBox Name="CategoryComboBox" Margin="30 30 30 10" IsReadOnly="True"/>
-            <ComboBox Name="RatingComboBox" Margin="30 10 " IsReadOnly="True" />
-            <ComboBox Name="PriceComboBox" Margin="30 10" IsReadOnly="True"/>
-            <ComboBox Name="OpenOrNotComboBox" Margin="30 10" IsReadOnly="True"/>
+            <ComboBox Text="category" Name="CategoryComboBox" Margin="30 30 30 10" IsReadOnly="True"/>
+            <ComboBox Text="minimal rating" Name="RatingComboBox" Margin="30 10 " IsReadOnly="True" />
+            <ComboBox Text="maximal price" Name="PriceComboBox" Margin="30 10" IsReadOnly="True"/>
+            <ComboBox Text="open now" Name="OpenOrNotComboBox" Margin="30 10" IsReadOnly="True"/>
             <Button  Name="RefreshSettings"
                 HorizontalAlignment="Right" Margin="70 5 70 0" Width="90" Height="30" Background="Black" 
                     FontFamily="/DvisualStudio.UI;component/#Century Gothic" FontSize="20"
