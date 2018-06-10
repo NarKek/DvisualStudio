@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DvisualStudio.Core;
+using DvisualStudio.Core.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,8 @@ namespace DvisualStudio.UI
     /// </summary>
     public partial class ListOfConcertsPage : Page
     {
+        private ServiceManager sm = new ServiceManager();
+
         public ListOfConcertsPage()
         {
             InitializeComponent();
@@ -32,25 +36,14 @@ namespace DvisualStudio.UI
         }
         private void CommonClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Content = new PageOfAConcert();
+            NavigationService.Content = new PageOfAConcert((sender as Button).DataContext as Concert);
         }
 
         private async void LoadData()
         {
-            var result = await GetRestaurants();
+            var getData = await sm.GetConcerts();
             LoadingLabel.Visibility = Visibility.Hidden;
+            ItemsControlOnConcertPage.ItemsSource = getData.OrderBy(c => c.Date);
         }
-
-        private Task<string> GetRestaurants()
-        {
-            return Task.Run(() =>
-            {
-                Task.Delay(2000).Wait();
-                return "Restaurants";
-            });
-
-            //method that will be replaced in future (now is for showing loading window for 2 secs )
-        }
-
     }
 }

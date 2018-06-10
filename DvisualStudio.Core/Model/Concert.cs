@@ -16,7 +16,7 @@ namespace DvisualStudio.Core.Model
         public string Description { get; set; }
         public string Url { get; set; }
         public string ClubName { get; set; }
-        public string Adress { get; set; }
+        public string Address { get; set; }
         public Location ClubLocation { get; set; }
         public string ClubTelephone { get; set; }
         public string Icon { get; set; }

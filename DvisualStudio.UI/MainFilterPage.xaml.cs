@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DvisualStudio.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,32 @@ namespace DvisualStudio.UI
     /// </summary>
     public partial class MainFilterPage : Page
     {
+        ServiceManager sm = new ServiceManager();
+
         public MainFilterPage()
         {
             InitializeComponent();
+            LoadingLabel.Visibility = Visibility.Hidden;
+            CategoryComboBox.ItemsSource = new List<string>()
+            {
+                null, "restaurant", "bar", "movie_theater", "park"
+            };
+            RatingComboBox.ItemsSource = new List<int?>()
+            {
+                null, 0, 1, 2, 3, 4, 5
+            };
+            PriceComboBox.ItemsSource = new List<int?>()
+            {
+                null, 0, 1, 2, 3, 4
+            };
+            OpenOrNotComboBox.ItemsSource = new List<bool?>()
+            {
+                null, true
+            };
+            CategoryComboBox.SelectedIndex = 0;
+            PriceComboBox.SelectedIndex = 0;
+            RatingComboBox.SelectedIndex = 0;
+            OpenOrNotComboBox.SelectedIndex = 0;
         }
 
         private void ButtonCategories_Click(object sender, RoutedEventArgs e)
@@ -42,15 +66,15 @@ namespace DvisualStudio.UI
 
         private void RefreshSettings_Click(object sender, RoutedEventArgs e)
         {
-            CategoryComboBox.SelectedIndex = 1;
-            PriceComboBox.SelectedIndex = -1;
-            RatingComboBox.SelectedIndex = -1;
-            OpenOrNotComboBox.SelectedIndex = -1;
+            CategoryComboBox.SelectedIndex = 0;
+            PriceComboBox.SelectedIndex = 0;
+            RatingComboBox.SelectedIndex = 0;
+            OpenOrNotComboBox.SelectedIndex = 0;
         }
 
-        private void SearchWithSettings_Click(object sender, RoutedEventArgs e)
+        private async void SearchWithSettings_Click(object sender, RoutedEventArgs e)
         {
-            // code for searching with selected parameters
+            ItemsControlOnPMainFilterPage.ItemsSource = await sm.SearchWithParameters(PriceComboBox.SelectedItem as int?, CategoryComboBox.SelectedItem as string, RatingComboBox.SelectedItem as int?, OpenOrNotComboBox.SelectedItem as bool?);
         }
     }
 }

@@ -51,7 +51,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 Description = e.Description,
                 Url = e.Url,
                 ClubName = e.Club.Name,
-                Adress = e.Club.Adress,
+                Address = e.Club.Adress,
                 ClubLocation = ConvertStringToLocation(e.Club.Location),
                 ClubTelephone = e.Club.Telephone,
                 Icon = e.Images.Afisha,
@@ -75,8 +75,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 Location = gp.Geometry.Location.Latitude.ToString() + " " + gp.Geometry.Location.Longitude.ToString(),
                 Address = gp.Address,
                 Icon = gp.Icon,
-                OpenNow = gp.OpenHours.OpenNow,
-                PriceLevel = gp.PriceLevel.ToString(),
+                OpenNow = gp.OpenHours.OpenNow
             };
             if (gp.GooglePhotos == null)
             {
@@ -87,6 +86,14 @@ namespace DvisualStudio.Core.Helpers.Transformers
             {
                 place.PhotoReference = gp.GooglePhotos[0].PhotoReference;
                 place.Photo = photoService.GetImageByReference(place.PhotoReference, "100", "80");
+            }
+            if (gp.PriceLevel.ToString() != "")
+            {
+                place.PriceLevel = gp.PriceLevel.ToString();
+            }
+            else
+            {
+                place.PriceLevel = "5";
             }
             return place;
         }
@@ -101,15 +108,20 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 Categories = dgp.Categories,
                 Rating = dgp.Rating,
                 Location = dgp.Geometry.Location.Latitude.ToString() + " " + dgp.Geometry.Location.Longitude.ToString(),
-                Address = dgp.Address,
+                Address = place.Address,
                 Icon = place.Icon,
                 OpenNow = dgp.OpenHours.OpenNow,
-                PriceLevel = place.PriceLevel.ToString(),
+                PriceLevel = place.PriceLevel,
                 Reviews = dgp.Reviews,
                 PhoneNumber = dgp.PhoneNumber,
                 WebSite = dgp.WebSite,
                 Photo =  photo.GetImageByReference(place.PhotoReference,"184","400")
             };
+            if (detPlace.Reviews != null)
+            {
+                detPlace.Author = detPlace.Reviews.FirstOrDefault().ReviewAuthor;
+                detPlace.Comment = detPlace.Reviews.FirstOrDefault().ReviewText;
+            }
             return detPlace;
         }
     }

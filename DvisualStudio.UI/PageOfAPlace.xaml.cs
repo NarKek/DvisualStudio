@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DvisualStudio.Core;
+using DvisualStudio.Core.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,14 @@ namespace DvisualStudio.UI
     /// </summary>
     public partial class PageOfAPlace : Page
     {
-        public PageOfAPlace()
+        private ServiceManager sm = new ServiceManager();
+        private Place _place;
+
+        public PageOfAPlace(Place place)
         {
+            _place = place;
             InitializeComponent();
+            LoadData();
         }
 
         private void ButtonCategories_Click(object sender, RoutedEventArgs e)
@@ -43,6 +50,12 @@ namespace DvisualStudio.UI
         private void ButtonBackToListOfPlaces_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private async void LoadData()
+        {
+            var getData = await sm.GetDetailedPlace(_place);
+            DataContext = getData;
         }
     }
 }

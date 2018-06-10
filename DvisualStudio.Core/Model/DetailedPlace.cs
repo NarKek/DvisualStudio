@@ -14,5 +14,7 @@ namespace DvisualStudio.Core.Model
         public IEnumerable<Review> Reviews { get; set; }
         public string PhoneNumber { get; set; }
         public string WebSite { get; set; }
+        public string Author { get; set; }
+        public string Comment { get; set; }
     }
 }
