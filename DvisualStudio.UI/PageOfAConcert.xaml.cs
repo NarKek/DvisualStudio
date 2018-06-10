@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DvisualStudio.Core.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,10 @@ namespace DvisualStudio.UI
     /// </summary>
     public partial class PageOfAConcert : Page
     {
-        public PageOfAConcert()
+        public PageOfAConcert(Concert concert)
         {
             InitializeComponent();
+            DataContext = concert;
         }
 
         private void ButtonBackToListOfConcerts_Click(object sender, RoutedEventArgs e)

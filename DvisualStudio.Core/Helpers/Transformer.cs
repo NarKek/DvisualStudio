@@ -51,7 +51,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 Description = e.Description,
                 Url = e.Url,
                 ClubName = e.Club.Name,
-                Adress = e.Club.Adress,
+                Address = e.Club.Adress,
                 ClubLocation = ConvertStringToLocation(e.Club.Location),
                 ClubTelephone = e.Club.Telephone,
                 Icon = e.Images.Afisha,

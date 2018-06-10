@@ -1,4 +1,5 @@
 ﻿using DvisualStudio.Core;
+using DvisualStudio.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace DvisualStudio.UI
         }
         private void CommonClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Content = new PageOfAConcert();
+            NavigationService.Content = new PageOfAConcert((sender as Button).DataContext as Concert);
         }
 
         private async void LoadData()
