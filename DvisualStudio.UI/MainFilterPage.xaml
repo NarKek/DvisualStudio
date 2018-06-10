@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
         <Rectangle Grid.ColumnSpan="3" Fill="#1e1e1e" />
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
-            <ComboBox   Name="CategoryComboBox" Margin="30 30 30 10" IsReadOnly="True"/>
+            <ComboBox Name="CategoryComboBox" Margin="30 30 30 10" IsReadOnly="True"/>
             <ComboBox Name="RatingComboBox" Margin="30 10 " IsReadOnly="True" />
             <ComboBox Name="PriceComboBox" Margin="30 10" IsReadOnly="True"/>
             <ComboBox Name="OpenOrNotComboBox" Margin="30 10" IsReadOnly="True"/>
@@ -74,7 +74,7 @@
                                 <Image  DockPanel.Dock="Left" Source="{Binding Icon}" Height="100" Width="80" Margin="10 3 0 3" />
                                 <TextBlock Text="{Binding Name}" DockPanel.Dock="Top"  Margin="10 2 0 0" FontSize="32" Foreground="#D69D85"  Height="32"/>
                                 <TextBlock Text="{Binding Category}" DockPanel.Dock="Top" Width="150" Margin="-80 10 0 0" FontSize="20" Foreground="#4EC9B0" />
-                                <TextBlock Text="{Binding Adress}" TextWrapping="WrapWithOverflow" DockPanel.Dock="Top"  Margin="-40 10 40 0" FontSize="13" Height="30" Width="150" />
+                                <TextBlock Text="{Binding Address}" TextWrapping="WrapWithOverflow" DockPanel.Dock="Top"  Margin="-40 10 40 0" FontSize="13" Height="30" Width="150" />
                                 <TextBlock Text="{Binding Rating}" DockPanel.Dock="Right"  Width="50" Height="50" Margin="130 -85 -40 10" FontSize="30" Foreground="#4EC9B0" />
                             </DockPanel>
                         </Button>

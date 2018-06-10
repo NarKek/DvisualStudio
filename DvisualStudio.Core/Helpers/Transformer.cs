@@ -75,8 +75,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 Location = gp.Geometry.Location.Latitude.ToString() + " " + gp.Geometry.Location.Longitude.ToString(),
                 Address = gp.Address,
                 Icon = gp.Icon,
-                OpenNow = gp.OpenHours.OpenNow,
-                PriceLevel = gp.PriceLevel.ToString(),
+                OpenNow = gp.OpenHours.OpenNow
             };
             if (gp.GooglePhotos == null)
             {
@@ -87,6 +86,14 @@ namespace DvisualStudio.Core.Helpers.Transformers
             {
                 place.PhotoReference = gp.GooglePhotos[0].PhotoReference;
                 place.Photo = photoService.GetImageByReference(place.PhotoReference, "100", "80");
+            }
+            if (gp.PriceLevel.ToString() != "")
+            {
+                place.PriceLevel = gp.PriceLevel.ToString();
+            }
+            else
+            {
+                place.PriceLevel = "5";
             }
             return place;
         }
@@ -104,7 +111,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 Address = place.Address,
                 Icon = place.Icon,
                 OpenNow = dgp.OpenHours.OpenNow,
-                PriceLevel = place.PriceLevel.ToString(),
+                PriceLevel = place.PriceLevel,
                 Reviews = dgp.Reviews,
                 PhoneNumber = dgp.PhoneNumber,
                 WebSite = dgp.WebSite,
