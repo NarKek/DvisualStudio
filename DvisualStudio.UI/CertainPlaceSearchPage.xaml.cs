@@ -1,19 +1,10 @@
 ﻿using DvisualStudio.Core;
 using DvisualStudio.Core.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DvisualStudio.UI
 {
@@ -22,7 +13,7 @@ namespace DvisualStudio.UI
     /// </summary>
     public partial class CertainPlaceSearchPage : Page
     {
-        ServiceManager sm = new ServiceManager(); 
+        ServiceManager sm = new ServiceManager();
 
         public CertainPlaceSearchPage()
         {
@@ -62,11 +53,11 @@ namespace DvisualStudio.UI
             SearchBox.Foreground = Brushes.Black;
         }
 
-        private void CommonClick(object sender , RoutedEventArgs e)
+        private void CommonClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Content = new PageOfAPlace((sender as Button).DataContext as Place);
         }
 
-        
+
     }
 }

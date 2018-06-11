@@ -1,14 +1,5 @@
-﻿using DvisualStudio.API.DTO;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Device.Location;
+﻿using System.Device.Location;
 using System.Globalization;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace DvisualStudio.API.Services
 {

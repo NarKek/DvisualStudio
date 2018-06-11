@@ -4,26 +4,25 @@ using DvisualStudio.API.DTO.GooglePlaceInfoAPI;
 using DvisualStudio.API.DTO.GooglePlacesTextSearchAPI;
 using DvisualStudio.API.Interfaces;
 using DvisualStudio.API.Services;
+using DvisualStudio.Core.Interfaces;
 using DvisualStudio.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DvisualStudio.Core.Helpers.Transformers
 {
-    public static class Transformer
+    public class GoogleTransformer : ITransformer
     {
-        private static DateTime ConvertTimestamp(int ts)
+        private DateTime ConvertTimestampToDateTime(int ts)
         {
             DateTime dt = new DateTime(1970, 1, 1);
             dt = dt.AddSeconds(ts);
             return dt;
         }
 
-        private static Location ConvertStringToLocation(string str)
+        private Location ConvertStringToLocation(string str)
         {
             string[] strs = str.Split(':');
             if (strs.Length != 2)
@@ -42,12 +41,12 @@ namespace DvisualStudio.Core.Helpers.Transformers
             return location;
         }
 
-        public static Concert TransformEventToConcert(Event e)
+        public Concert TransfromJsonEventToConcert(Event e)
         {
             Concert concert = new Concert()
             {
                 Name = e.Title,
-                Date = ConvertTimestamp(e.Timestamp),
+                Date = ConvertTimestampToDateTime(e.Timestamp),
                 Categories = e.Genres.Genre,
                 Description = e.Description,
                 Url = e.Url,
@@ -62,10 +61,10 @@ namespace DvisualStudio.Core.Helpers.Transformers
             return concert;
         }
 
-        public static Place TransformTextPlaceToPlace(GoogleTextSearchPlace gtp)
+        public Place TransformTextPlaceToPlace(GoogleTextSearchPlace gtp)
         {
             IPhotosService photoService = new GooglePhotosService();
-            
+
             Place place = new Place()
             {
                 Id = gtp.PlaceId,
@@ -73,9 +72,9 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 Categories = gtp.Categories,
                 Rating = gtp.Rating,
                 Location = gtp.Geometry.Location.Latitude.ToString() + " " + gtp.Geometry.Location.Longitude.ToString(),
-                Address = gtp.Address,
-                Icon = gtp.Icon,
-                OpenNow = gtp.OpenHours.OpenNow
+                Address = gtp.Address ?? "",
+                Icon = gtp.Icon ?? "",
+                OpenNow = gtp.OpenHours?.OpenNow ?? false
             };
 
             if (gtp.GooglePhotos == null)
@@ -91,7 +90,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
             return place;
         }
 
-        public static Place TransformGooglePlaceToPlace(GooglePlace gp)
+        public Place TransformAPINerabyPlaceToPlace(GooglePlace gp)
         {
             IPhotosService photoService = new GooglePhotosService();
 
@@ -100,12 +99,12 @@ namespace DvisualStudio.Core.Helpers.Transformers
             {
                 Id = gp.PlaceId,
                 Name = gp.Name,
-                Categories = gp.Categories,
+                Categories = gp.Categories ?? new List<string>(),
                 Rating = gp.Rating,
                 Location = gp.Geometry.Location.Latitude.ToString() + " " + gp.Geometry.Location.Longitude.ToString(),
-                Address = gp.Address,
+                Address = gp.Address ?? "",
                 Icon = gp.Icon,
-                OpenNow = gp.OpenHours.OpenNow
+                OpenNow = gp.OpenHours?.OpenNow ?? false
             };
             if (gp.GooglePhotos == null)
             {
@@ -117,6 +116,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 place.PhotoReference = gp.GooglePhotos[0].PhotoReference;
                 place.Photo = photoService.GetImageByReference(place.PhotoReference, "100", "80");
             }
+
             if (gp.PriceLevel.ToString() != "")
             {
                 place.PriceLevel = gp.PriceLevel.ToString();
@@ -125,6 +125,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
             {
                 place.PriceLevel = "5";
             }
+
             switch (place.PriceLevel)
             {
                 case "0":
@@ -149,7 +150,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
             return place;
         }
 
-        public static DetailedPlace TransformGoogleDetailedPlaceToPlace(DetailedGooglePlace dgp, Place place)
+        public DetailedPlace TransformDetailedPlaceToPlace(DetailedGooglePlace dgp, Place place)
         {
             IPhotosService photo = new GooglePhotosService();
             DetailedPlace detPlace = new DetailedPlace()
@@ -161,14 +162,15 @@ namespace DvisualStudio.Core.Helpers.Transformers
                 Location = dgp.Geometry.Location.Latitude.ToString() + " " + dgp.Geometry.Location.Longitude.ToString(),
                 Address = place.Address,
                 Icon = place.Icon,
-                OpenNow = dgp.OpenHours.OpenNow,
+                OpenNow = dgp.OpenHours?.OpenNow ?? false,
                 PriceLevel = place.PriceLevel,
                 PriceString = place.PriceString,
                 Reviews = dgp.Reviews,
                 PhoneNumber = dgp.PhoneNumber,
                 WebSite = dgp.WebSite,
-                Photo =  photo.GetImageByReference(place.PhotoReference,"184","400")
+                Photo = photo.GetImageByReference(place.PhotoReference, "184", "400")
             };
+
             if (detPlace.Reviews != null)
             {
                 detPlace.Author = detPlace.Reviews.FirstOrDefault().ReviewAuthor;

@@ -7,13 +7,14 @@ using DvisualStudio.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DvisualStudio.Core
 {
     public class ServiceManager
     {
+        ITransformer transformer = new GoogleTransformer();
+
         private Dictionary<string, int> _priceLevels = new Dictionary<string, int>
         {
             { "free", 0 },
@@ -41,11 +42,13 @@ namespace DvisualStudio.Core
         public async Task<IEnumerable<Place>> GetPlacesByCategory(string category)
         {
             IPlacesService placesService = new GooglePlacesService();
+
             var result = await Task.Factory.StartNew(() => placesService.FindNearestPlacesByCategory(category));
             List<Place> places = new List<Place>();
+
             foreach (var r in result)
             {
-                places.Add(Transformer.TransformGooglePlaceToPlace(r));
+                places.Add(transformer.TransformAPINerabyPlaceToPlace(r));
             }
             return places;
         }
@@ -54,27 +57,33 @@ namespace DvisualStudio.Core
         {
             IDetailedPlaceInfoService dps = new DetailedGooglePlaceService();
             var result = await Task.Factory.StartNew(() => dps.GetInformationAboutSelectedPlace(place.Id));
-            return Transformer.TransformGoogleDetailedPlaceToPlace(result, place);
+
+            return transformer.TransformDetailedPlaceToPlace(result, place);
         }
 
         public async Task<IEnumerable<Place>> SearchWithParameters(string priceLevel, string category, int? rating, string openNow)
         {
             int price;
             bool open = true;
-            string cat;
+            string categ;
+
             if (category == null)
-                cat = "";
+                categ = "";
             else
-                cat = _categories[category];
+                categ = _categories[category];
+
             if (priceLevel == null)
                 price = 5;
             else
                 price = _priceLevels[priceLevel];
+
             if (rating == null)
                 rating = 0;
+
             if (openNow == null)
                 open = false;
-            var result = await Task.Factory.StartNew(() => GetPlacesByCategory(cat));
+
+            var result = await Task.Factory.StartNew(() => GetPlacesByCategory(categ));
             var query = result.Result.Where(p => p.Rating >= rating && int.Parse(p.PriceLevel) <= price && Convert.ToInt32(p.OpenNow) >= Convert.ToInt32(open));
             return query;
         }
@@ -82,11 +91,13 @@ namespace DvisualStudio.Core
         public async Task<IEnumerable<Place>> TextSearch(string text)
         {
             ITextSearchService textSearch = new GoogleTextSearchService();
+
             IEnumerable<GoogleTextSearchPlace> result = await Task.Factory.StartNew(() => textSearch.FindPlacesByTextInput(text));
             List<Place> places = new List<Place>();
+
             foreach (var gtp in result)
             {
-                places.Add(Transformer.TransformTextPlaceToPlace(gtp));
+                places.Add(transformer.TransformTextPlaceToPlace(gtp));
             }
             return places;
         }
