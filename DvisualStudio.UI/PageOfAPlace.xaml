@@ -23,7 +23,6 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Grid.ColumnSpan="3" Fill="#1e1e1e"/>
-
         <Button Name="ButtonBackToListOfPlaces"
             Grid.Row="0" Grid.Column="0" Height="72" Panel.ZIndex="1"
                 Width="75" HorizontalAlignment="Left"
@@ -35,39 +34,39 @@
             </Button.Background>
         </Button>
         
-        <Image Grid.Row="1" Grid.ColumnSpan="3" Source="{Binding Photo}" MaxWidth="400" MaxHeight="184"/>
+            <Image Grid.Row="1" Grid.ColumnSpan="3" Source="{Binding Photo}" MaxWidth="400" MaxHeight="184"/>
 
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="3">
-            <TextBlock Height="35" Margin="20 10 0 0" Text="{Binding Name}" Foreground="White" FontSize="30" TextAlignment="Left"/>
-            <TextBlock Height="22" Margin="20 0 0 0" FontSize="20" Text="{Binding PriceString}" Foreground="#D69D85"/>
-            <TextBlock Width="70" Height="50" HorizontalAlignment="Left" FontSize="40" Margin="20 0 0 0" Foreground="#4EC9B0" Text="{Binding Rating}"/>
-        </StackPanel>
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="3">
+                <TextBlock Height="28" Margin="20 10 0 0" TextWrapping="WrapWithOverflow" Text="{Binding Name}" Foreground="White" FontSize="20" TextAlignment="Left"/>
+                <TextBlock Height="22" Margin="20 0 0 0" FontSize="20" Text="{Binding PriceString}" Foreground="#D69D85"/>
+                <TextBlock Width="70" Height="50" HorizontalAlignment="Left" FontSize="35" Margin="20 0 0 5" Foreground="#4EC9B0" Text="{Binding Rating}"/>
+            </StackPanel>
 
-        <StackPanel Margin="0 10 0 0" Grid.Row="3" Grid.ColumnSpan="3">
-            <TextBlock Background="Black" Text="{Binding WebSite}" Margin="0 0 0 0" Padding="20 0 0 0" FontSize="20" Foreground="White" Height="30" TextAlignment="Left"/>
-            <TextBlock Background="Black" Margin="0 10 0 0" Text="{Binding PhoneNumber}" Padding="20 3 0 0" FontSize="20" Foreground="White"  Height="30"/>
-            <TextBlock Background="Black" Margin="0 10 0 0" Text="{Binding Address}" Padding="20 3 20 0" FontSize="20" Foreground="White" Height="30"/>
-        </StackPanel>
-        <ScrollViewer Name="scroll" ScrollViewer.VerticalScrollBarVisibility="Hidden" Grid.ColumnSpan="3" Grid.Row="4"  Background="#333333" 
+            <StackPanel Margin="0 10 0 0" Grid.Row="3" Grid.ColumnSpan="3">
+                <TextBlock Background="Black" Text="{Binding WebSite}" Margin="0 0 0 0" Padding="20 7 0 0" FontSize="10" Foreground="White" Height="30" TextAlignment="Left"/>
+                <TextBlock Background="Black" Margin="0 10 0 0" Text="{Binding PhoneNumber}" Padding="20 3 0 0" FontSize="20" Foreground="White"  Height="30"/>
+                <TextBlock Background="Black" Margin="0 10 0 0" Text="{Binding Address}" FontSize="13" Padding="20 4 0 0" Foreground="White" Height="30"/>
+            </StackPanel>
+            <ScrollViewer Name="scroll" ScrollViewer.VerticalScrollBarVisibility="Hidden" Grid.ColumnSpan="3" Grid.Row="4"  Background="#333333" 
                     Margin="0 10 0 10" >
-            <ItemsControl Name="ItemsControlOnLPlacePage" >
-                <ItemsControl.ItemsPanel >
-                    <ItemsPanelTemplate>
-                        <StackPanel />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Background="Black" Margin="  10" MaxHeight="1000">
-                            <TextBlock Text="{Binding Author}" Margin="10 0 0 0" Foreground="#4EC9B0" FontSize="15"/>
-                            <TextBlock Text="{Binding Comment}" FontSize="10" Padding="0 0 5 5" TextWrapping="WrapWithOverflow" Foreground="White"  MaxHeight="1000" Margin="10 0 0 0"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
-        
-        <Button Name="ButtonCategories"
+                <ItemsControl Name="CommentControlOnLPlacePage" >
+                    <ItemsControl.ItemsPanel >
+                        <ItemsPanelTemplate>
+                            <StackPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Background="Black" Margin="  10" MaxHeight="1000">
+                                <TextBlock Text="{Binding Author}" Margin="10 0 0 0" Foreground="#4EC9B0" FontSize="15"/>
+                                <TextBlock Text="{Binding Comment}" FontSize="10" Padding="0 0 5 5" TextWrapping="WrapWithOverflow" Foreground="White"  MaxHeight="1000" Margin="10 0 0 0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+
+            <Button Name="ButtonCategories"
                 Background="#1e1e1e"
             Grid.Row="5" Height="60" 
                 BorderThickness="0"
