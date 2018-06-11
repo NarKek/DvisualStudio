@@ -1,4 +1,5 @@
 ﻿using DvisualStudio.Core;
+using DvisualStudio.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,19 +30,19 @@ namespace DvisualStudio.UI
             LoadingLabel.Visibility = Visibility.Hidden;
             CategoryComboBox.ItemsSource = new List<string>()
             {
-                null, "restaurant", "bar", "movie_theater", "park"
+                null, "restaurants", "bars", "cinemas", "parks"
             };
             RatingComboBox.ItemsSource = new List<int?>()
             {
                 null, 0, 1, 2, 3, 4, 5
             };
-            PriceComboBox.ItemsSource = new List<int?>()
+            PriceComboBox.ItemsSource = new List<string>()
             {
-                null, 0, 1, 2, 3, 4
+                null, "free", "cheap", "moderate", "expensive", "very expensive"
             };
-            OpenOrNotComboBox.ItemsSource = new List<bool?>()
+            OpenOrNotComboBox.ItemsSource = new List<string>()
             {
-                null, true
+                null, "open now"
             };
             CategoryComboBox.SelectedIndex = 0;
             PriceComboBox.SelectedIndex = 0;
@@ -70,19 +71,19 @@ namespace DvisualStudio.UI
             PriceComboBox.SelectedIndex = 0;
             RatingComboBox.SelectedIndex = 0;
             OpenOrNotComboBox.SelectedIndex = 0;
+            ItemsControlOnPMainFilterPage.ItemsSource = null;
         }
 
         private async void SearchWithSettings_Click(object sender, RoutedEventArgs e)
         {
             LoadingLabel.Visibility = Visibility.Visible;
-            ItemsControlOnPMainFilterPage.ItemsSource = await sm.SearchWithParameters(PriceComboBox.SelectedItem as int?, CategoryComboBox.SelectedItem as string, RatingComboBox.SelectedItem as int?, OpenOrNotComboBox.SelectedItem as bool?);
+            ItemsControlOnPMainFilterPage.ItemsSource = await sm.SearchWithParameters(PriceComboBox.SelectedItem as string, CategoryComboBox.SelectedItem as string, RatingComboBox.SelectedItem as int?, OpenOrNotComboBox.SelectedItem as string);
             LoadingLabel.Visibility = Visibility.Hidden;
         }
 
         private void CommonClick(object sender, RoutedEventArgs e)
         {
-            //your code
-
+            NavigationService.Content = new PageOfAPlace((sender as Button).DataContext as Place);
         }
     }
 }

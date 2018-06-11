@@ -14,6 +14,24 @@ namespace DvisualStudio.Core
 {
     public class ServiceManager
     {
+        private Dictionary<string, int> _priceLevels = new Dictionary<string, int>
+        {
+            { "free", 0 },
+            { "cheap", 1 },
+            { "moderate", 2 },
+            { "expensive", 3 },
+            { "very expensive", 4 },
+            { "unknown", 5 }
+        };
+
+        private Dictionary<string, string> _categories = new Dictionary<string, string>
+        {
+            { "restaurants", "restaurant" },
+            { "bars", "bar" },
+            { "cinemas", "movie_theater" },
+            { "parks", "park" }
+        };
+
         public async Task<IEnumerable<Concert>> GetConcerts()
         {
             IConcertRepository repo = await Task.Factory.StartNew(() => Factory.Instance.GetRepository());
@@ -39,18 +57,25 @@ namespace DvisualStudio.Core
             return Transformer.TransformGoogleDetailedPlaceToPlace(result, place);
         }
 
-        public async Task<IEnumerable<Place>> SearchWithParameters(int? priceLevel, string category, int? rating, bool? openNow)
+        public async Task<IEnumerable<Place>> SearchWithParameters(string priceLevel, string category, int? rating, string openNow)
         {
+            int price;
+            bool open = true;
+            string cat;
             if (category == null)
-                category = "";
+                cat = "";
+            else
+                cat = _categories[category];
             if (priceLevel == null)
-                priceLevel = 5;
+                price = 5;
+            else
+                price = _priceLevels[priceLevel];
             if (rating == null)
                 rating = 0;
             if (openNow == null)
-                openNow = false;
-            var result = await Task.Factory.StartNew(() => GetPlacesByCategory(category));
-            var query = result.Result.Where(p => p.Rating >= rating && p.PriceLevel != "" && int.Parse(p.PriceLevel) <= priceLevel && Convert.ToInt32(p.OpenNow) >= Convert.ToInt32(openNow));
+                open = false;
+            var result = await Task.Factory.StartNew(() => GetPlacesByCategory(cat));
+            var query = result.Result.Where(p => p.Rating >= rating && int.Parse(p.PriceLevel) <= price && Convert.ToInt32(p.OpenNow) >= Convert.ToInt32(open));
             return query;
         }
 
@@ -58,7 +83,12 @@ namespace DvisualStudio.Core
         //{
         //    ITextSearchService textSearch = new GoogleTextSearchService();
         //    IEnumerable<GoogleTextSearchPlace> result = await Task.Factory.StartNew(() => textSearch.FindPlacesByTextInput(text));
-        //
+        //    List<Place> places = new List<Place>();
+        //    foreach (var gtp in result)
+        //    {
+        //        places.Add(Transformer.TransformTextPlaceToPlace(gtp));
+        //    }
+        //    return places;
         //}
     }
 }

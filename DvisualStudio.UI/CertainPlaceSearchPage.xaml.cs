@@ -29,15 +29,14 @@ namespace DvisualStudio.UI
             LoadingLabel.Visibility = Visibility.Hidden;
         }
 
-        private void SearchBox_KeyDown(object sender, KeyEventArgs e)
+        private async void SearchBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
-            {
-                //LoadingLabel.Visibility = Visibility.Visible;
-                //ItemsControlOnPlaceSearchPage.ItemsSource = await sm.
-
-
-            }
+        //    if (e.Key == Key.Enter)
+        //    {
+        //        LoadingLabel.Visibility = Visibility.Visible;
+        //        ItemsControlOnPlaceSearchPage.ItemsSource = await sm.TextSearch(SearchBox.Text);
+        //        LoadingLabel.Visibility = Visibility.Hidden;
+        //    }
         }
 
         private void ButtonCategories_Click(object sender, RoutedEventArgs e)
