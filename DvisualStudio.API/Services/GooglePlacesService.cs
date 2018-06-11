@@ -19,7 +19,7 @@ namespace DvisualStudio.API.Services
         {
             GetLocationService ip = new GetLocationService();
             string radius = "1000";
-            string location = "55.753752, 37.622517";
+            string location = ip.GetLocation();
 
 
             string Url = BuildUrl(BaseUrl, new Dictionary<string, string>()
