@@ -62,13 +62,13 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Style="{DynamicResource DefaultButtonStyle}" Width="340" Height="120" Margin="12 16 10 7">
+                        <Button Style="{DynamicResource DefaultButtonStyle}" Width="340" Height="120" Margin="15 16 30 7"
+                                Click="CommonClick">
                             <DockPanel  Height="120" Width="340" Background="White" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <Image  DockPanel.Dock="Left" Source="{Binding Icon}" Height="100" Width="80" Margin="10 3 0 3" />
-                                <TextBlock Text="{Binding Name}" DockPanel.Dock="Top"  Margin="10 2 0 0" FontSize="32" Foreground="#D69D85"  Height="32"/>
-                                <TextBlock Text="{Binding Category}" DockPanel.Dock="Top" Width="150" Margin="-80 10 0 0" FontSize="20" Foreground="#4EC9B0" />
+                                <TextBlock Text="{Binding Name}" TextWrapping="WrapWithOverflow" DockPanel.Dock="Top"  Margin="10 2 0 0" FontSize="25" Foreground="#D69D85"  Height="32"/>
+                                <TextBlock Text="{Binding Category}" TextWrapping="WrapWithOverflow" DockPanel.Dock="Top" Width="150" Margin="-80 10 0 0" FontSize="20" Foreground="#4EC9B0" />
                                 <TextBlock Text="{Binding Adress}" TextWrapping="WrapWithOverflow" DockPanel.Dock="Top"  Margin="-40 10 40 0" FontSize="13" Height="30" Width="150" />
-                                <TextBlock Text="{Binding Rating}" DockPanel.Dock="Right"  Width="50" Height="50" Margin="130 -85 -40 10" FontSize="30" Foreground="#4EC9B0" />
                             </DockPanel>
                         </Button>
                     </DataTemplate>

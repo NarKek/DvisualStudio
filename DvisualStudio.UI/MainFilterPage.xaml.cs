@@ -78,5 +78,11 @@ namespace DvisualStudio.UI
             ItemsControlOnPMainFilterPage.ItemsSource = await sm.SearchWithParameters(PriceComboBox.SelectedItem as int?, CategoryComboBox.SelectedItem as string, RatingComboBox.SelectedItem as int?, OpenOrNotComboBox.SelectedItem as bool?);
             LoadingLabel.Visibility = Visibility.Hidden;
         }
+
+        private void CommonClick(object sender, RoutedEventArgs e)
+        {
+            //your code
+
+        }
     }
 }

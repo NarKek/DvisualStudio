@@ -57,6 +57,11 @@ namespace DvisualStudio.UI
             SearchBox.Foreground = Brushes.Black;
         }
 
+        private void CommonClick(object sender , RoutedEventArgs e)
+        {
+            //your code
+        }
+
         
     }
 }

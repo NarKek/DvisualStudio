@@ -37,7 +37,7 @@
         </Button>
 
         <ScrollViewer Name="scroll" ScrollViewer.VerticalScrollBarVisibility="Hidden" Grid.ColumnSpan="3" Grid.Row="1"  Background="#333333" 
-                    Margin="0 0 0 30" >
+                    Margin="0 0 0 5" >
 
             <ItemsControl Name="ItemsControlOnConcertPage" >
                 <ItemsControl.ItemsPanel >
@@ -47,13 +47,13 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Style="{DynamicResource DefaultButtonStyle}" Width="340" Height="120" Margin="15 16 30 7"
+                        <Button Style="{DynamicResource DefaultButtonStyle}" Width="340" Height="120" Margin="25 16 30 7"
                                 Click="CommonClick">
                             <DockPanel  Height="120" Width="340" Background="White" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <Image  DockPanel.Dock="Left" Source="{Binding Icon}" Height="100" Width="80" Margin="10 3 0 3" />
-                                <TextBlock Text="{Binding Name}" DockPanel.Dock="Top"  Margin="10 2 0 0" FontSize="25" Foreground="#D69D85"  Height="32"/>
-                                <TextBlock Text="{Binding Category}" DockPanel.Dock="Top" Width="150" Margin="-80 10 0 0" FontSize="20" Foreground="#4EC9B0" />
-                                <TextBlock Text="{Binding Adress}" TextWrapping="WrapWithOverflow" DockPanel.Dock="Top"  Margin="-40 10 40 0" FontSize="13" Height="30" Width="150" />
+                                <TextBlock Text="{Binding Name}" TextWrapping="WrapWithOverflow" DockPanel.Dock="Top"  Margin="10 5 0 0" FontSize="18" Foreground="#D69D85"  MaxHeight="60"/>
+                                <TextBlock Text="{Binding Category}" TextWrapping="WrapWithOverflow" DockPanel.Dock="Top" Width="150" Margin="-80 10 0 0" FontSize="20" Foreground="#4EC9B0" />
+                                <TextBlock Text="{Binding Adress}" TextWrapping="WrapWithOverflow" DockPanel.Dock="Top"  Margin="-40 10 40 10" FontSize="13" Height="30" Width="150" />
                             </DockPanel>
                         </Button>
                     </DataTemplate>
