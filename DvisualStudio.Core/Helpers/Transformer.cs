@@ -62,34 +62,34 @@ namespace DvisualStudio.Core.Helpers.Transformers
             return concert;
         }
 
-        //public static Place TransformTextPlaceToPlace(GoogleTextSearchPlace gtp)
-        //{
-        //IPhotosService photoService = new GooglePhotosService();
-        //
-        //var gplace = gtp;
-        //Place place = new Place()
-        //{
-        //    Id = gtp.PlaceId,
-        //    Name = gtp.Name,
-        //    Categories = gtp.Categories,
-        //    Rating = gtp.Rating,
-        //    Location = gtp.Geometry.Location.Latitude.ToString() + " " + gtp.Geometry.Location.Longitude.ToString(),
-        //    Address = gtp.Address,
-        //    Icon = gtp.Icon,
-        //    OpenNow = gtp.OpenHours.OpenNow
-        //};
-        //    if (gtp.GooglePhotos == null)
-        //    {
-        //        place.PhotoReference = place.Icon;
-        //        place.Photo = place.Icon;
-        //    }
-        //    else
-        //    {
-        //        place.PhotoReference = gtp.GooglePhotos[0].PhotoReference;
-        //        place.Photo = photoService.GetImageByReference(place.PhotoReference, "100", "80");
-        //    }
-        //    return place;
-        //}
+        public static Place TransformTextPlaceToPlace(GoogleTextSearchPlace gtp)
+        {
+            IPhotosService photoService = new GooglePhotosService();
+            
+            Place place = new Place()
+            {
+                Id = gtp.PlaceId,
+                Name = gtp.Name,
+                Categories = gtp.Categories,
+                Rating = gtp.Rating,
+                Location = gtp.Geometry.Location.Latitude.ToString() + " " + gtp.Geometry.Location.Longitude.ToString(),
+                Address = gtp.Address,
+                Icon = gtp.Icon,
+                OpenNow = gtp.OpenHours.OpenNow
+            };
+
+            if (gtp.GooglePhotos == null)
+            {
+                place.PhotoReference = place.Icon;
+                place.Photo = place.Icon;
+            }
+            else
+            {
+                place.PhotoReference = gtp.GooglePhotos[0].PhotoReference;
+                place.Photo = photoService.GetImageByReference(place.PhotoReference, "100", "80");
+            }
+            return place;
+        }
 
         public static Place TransformGooglePlaceToPlace(GooglePlace gp)
         {

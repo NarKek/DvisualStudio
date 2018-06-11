@@ -54,7 +54,6 @@
     <Compile Include="DTO\DetailedGooglePlaceInfoAPI\DetailedGooglePlace.cs" />
     <Compile Include="DTO\DetailedGooglePlaceInfoAPI\DetailedGooglePlaceInfoResponse.cs" />
     <Compile Include="DTO\Geometry.cs" />
-    <Compile Include="DTO\GetLocationAPI.cs" />
     <Compile Include="DTO\DetailedGooglePlaceInfoAPI\Review.cs" />
     <Compile Include="DTO\GooglePhoto.cs" />
     <Compile Include="DTO\GooglePlacesAPI\GooglePlace.cs" />
@@ -69,7 +68,7 @@
     <Compile Include="Interfaces\ITextSearchService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DetailedGooglePlaceService.cs" />
-    <Compile Include="Services\GetLocationByIpService.cs" />
+    <Compile Include="Services\GetLocationService.cs" />
     <Compile Include="Services\GooglePhotosService.cs" />
     <Compile Include="Services\GooglePlacesService.cs" />
     <Compile Include="Services\GoogleTextSearchService.cs" />
@@ -78,8 +77,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTO\GooglePlacesMassSearch\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

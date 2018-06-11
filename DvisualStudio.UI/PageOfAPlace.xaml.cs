@@ -56,6 +56,7 @@ namespace DvisualStudio.UI
         {
             var getData = await sm.GetDetailedPlace(_place);
             DataContext = getData;
+            CommentControlOnLPlacePage.ItemsSource = getData.Reviews;
         }
     }
 }

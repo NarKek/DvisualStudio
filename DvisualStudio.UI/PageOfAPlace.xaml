@@ -58,8 +58,8 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Background="Black" Margin="  10" MaxHeight="1000">
-                                <TextBlock Text="{Binding Author}" Margin="10 0 0 0" Foreground="#4EC9B0" FontSize="15"/>
-                                <TextBlock Text="{Binding Comment}" FontSize="10" Padding="0 0 5 5" TextWrapping="WrapWithOverflow" Foreground="White"  MaxHeight="1000" Margin="10 0 0 0"/>
+                            <TextBlock Text="{Binding ReviewAuthor}" Margin="10 0 0 0" Foreground="#4EC9B0" FontSize="15"/>
+                                <TextBlock Text="{Binding ReviewText}" FontSize="10" Padding="0 0 5 5" TextWrapping="WrapWithOverflow" Foreground="White"  MaxHeight="1000" Margin="10 0 0 0"/>
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

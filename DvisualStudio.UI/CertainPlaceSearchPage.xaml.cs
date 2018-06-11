@@ -1,4 +1,5 @@
 ﻿using DvisualStudio.Core;
+using DvisualStudio.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,12 +32,12 @@ namespace DvisualStudio.UI
 
         private async void SearchBox_KeyDown(object sender, KeyEventArgs e)
         {
-        //    if (e.Key == Key.Enter)
-        //    {
-        //        LoadingLabel.Visibility = Visibility.Visible;
-        //        ItemsControlOnPlaceSearchPage.ItemsSource = await sm.TextSearch(SearchBox.Text);
-        //        LoadingLabel.Visibility = Visibility.Hidden;
-        //    }
+            if (e.Key == Key.Enter)
+            {
+                LoadingLabel.Visibility = Visibility.Visible;
+                ItemsControlOnPlaceSearchPage.ItemsSource = await sm.TextSearch(SearchBox.Text);
+                LoadingLabel.Visibility = Visibility.Hidden;
+            }
         }
 
         private void ButtonCategories_Click(object sender, RoutedEventArgs e)
@@ -63,7 +64,7 @@ namespace DvisualStudio.UI
 
         private void CommonClick(object sender , RoutedEventArgs e)
         {
-            //your code
+            NavigationService.Content = new PageOfAPlace((sender as Button).DataContext as Place);
         }
 
         

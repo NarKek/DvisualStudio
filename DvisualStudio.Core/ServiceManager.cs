@@ -79,16 +79,16 @@ namespace DvisualStudio.Core
             return query;
         }
 
-        //public async Task<IEnumerable<Place>> TextSearch(string text)
-        //{
-        //    ITextSearchService textSearch = new GoogleTextSearchService();
-        //    IEnumerable<GoogleTextSearchPlace> result = await Task.Factory.StartNew(() => textSearch.FindPlacesByTextInput(text));
-        //    List<Place> places = new List<Place>();
-        //    foreach (var gtp in result)
-        //    {
-        //        places.Add(Transformer.TransformTextPlaceToPlace(gtp));
-        //    }
-        //    return places;
-        //}
+        public async Task<IEnumerable<Place>> TextSearch(string text)
+        {
+            ITextSearchService textSearch = new GoogleTextSearchService();
+            IEnumerable<GoogleTextSearchPlace> result = await Task.Factory.StartNew(() => textSearch.FindPlacesByTextInput(text));
+            List<Place> places = new List<Place>();
+            foreach (var gtp in result)
+            {
+                places.Add(Transformer.TransformTextPlaceToPlace(gtp));
+            }
+            return places;
+        }
     }
 }

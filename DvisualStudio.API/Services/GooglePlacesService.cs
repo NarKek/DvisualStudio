@@ -17,9 +17,9 @@ namespace DvisualStudio.API.Services
         private const string BaseUrl = "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
         public List<GooglePlace> FindNearestPlacesByCategory(string category)
         {
-            GetLocationByIpService ip = new GetLocationByIpService();
+            GetLocationService ip = new GetLocationService();
             string radius = "1000";
-            string location = ip.GetLocation();
+            string location = "55.753752, 37.622517";
 
 
             string Url = BuildUrl(BaseUrl, new Dictionary<string, string>()
@@ -51,7 +51,7 @@ namespace DvisualStudio.API.Services
         }
         public List<GooglePlace> DetailedSearchForNearestPlaces(Dictionary<string, string> addToMainUrl)
         {
-            GetLocationByIpService ip = new GetLocationByIpService();
+            GetLocationService ip = new GetLocationService();
             addToMainUrl.Add("key", APIKey);
             addToMainUrl.Add("location", ip.GetLocation());
             addToMainUrl.Add("radius", "1000");
