@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Device.Location;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -11,44 +12,37 @@ using System.Windows;
 
 namespace DvisualStudio.API.Services
 {
-    public static class GetLocationByIpService
+    public class GetLocationByIpService
     {
-        private static void GeoCoordinateWatcherPositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
-        {
-            var currentLatitude = e.Position.Location.Latitude;
-            var currentLongitude = e.Position.Location.Longitude;
-        }
-        public static string GetLocation() 
+        public GeoCoordinate Coordinate { get; set; }
+      
+        public void CalculateLocation() 
         {
             GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
 
-            string kek = "";
-            watcher.MovementThreshold = 20;
-
-            watcher.PositionChanged += (object sender, GeoPositionChangedEventArgs<GeoCoordinate> e) => kek = $"{e.Position.Location.Latitude},{e.Position.Location.Longitude}";
+            watcher.PositionChanged += (object sender, GeoPositionChangedEventArgs<GeoCoordinate> e) => Coordinate = e.Position.Location;
 
             watcher.StatusChanged += (sender, e) =>
             {
                 switch (e.Status)
                 {
                     case GeoPositionStatus.Ready:
-                        GeoCoordinate coord = watcher.Position.Location;
-                        
+                        Coordinate = watcher.Position.Location;
                         watcher.Stop();
                         break;
                 }
             };
 
             watcher.Start();
-            //while (watcher.Status != GeoPositionStatus.Ready)
-            //{
-            //    System.Threading.Thread.Sleep(10);
-            //}
 
-
-
-            return kek;
+            while (Coordinate == null)
+            {
+            }
         }
-        
+        public string GetLocation()
+        {
+            CalculateLocation();
+            return Coordinate.Latitude.ToString(CultureInfo.InvariantCulture) + "," + Coordinate.Longitude.ToString(CultureInfo.InvariantCulture);
+        }
     }
 }

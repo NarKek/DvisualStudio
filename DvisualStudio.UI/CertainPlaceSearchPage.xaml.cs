@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DvisualStudio.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,18 +21,22 @@ namespace DvisualStudio.UI
     /// </summary>
     public partial class CertainPlaceSearchPage : Page
     {
+        ServiceManager sm = new ServiceManager(); 
+
         public CertainPlaceSearchPage()
         {
             InitializeComponent();
-            
+            LoadingLabel.Visibility = Visibility.Hidden;
         }
 
         private void SearchBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                //code for searching and filling a list of results
-              
+                //LoadingLabel.Visibility = Visibility.Visible;
+                //ItemsControlOnPlaceSearchPage.ItemsSource = await sm.
+
+
             }
         }
 

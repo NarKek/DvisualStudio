@@ -1,4 +1,5 @@
-﻿using DvisualStudio.API.Interfaces;
+﻿using DvisualStudio.API.DTO.GooglePlacesTextSearchAPI;
+using DvisualStudio.API.Interfaces;
 using DvisualStudio.API.Services;
 using DvisualStudio.Core.Helpers.Transformers;
 using DvisualStudio.Core.Interfaces;
@@ -52,5 +53,12 @@ namespace DvisualStudio.Core
             var query = result.Result.Where(p => p.Rating >= rating && p.PriceLevel != "" && int.Parse(p.PriceLevel) <= priceLevel && Convert.ToInt32(p.OpenNow) >= Convert.ToInt32(openNow));
             return query;
         }
+
+        //public async Task<IEnumerable<Place>> TextSearch(string text)
+        //{
+        //    ITextSearchService textSearch = new GoogleTextSearchService();
+        //    IEnumerable<GoogleTextSearchPlace> result = await Task.Factory.StartNew(() => textSearch.FindPlacesByTextInput(text));
+        //
+        //}
     }
 }
