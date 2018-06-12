@@ -31,10 +31,19 @@ namespace DvisualStudio.API.Services
         {
             CalculateLocation();
 
+            //GeoCoordinate geoCoordinate = new GeoCoordinate();
+            //using (GeoCoordinateWatcher watcher = new GeoCoordinateWatcher())
+            //{
+            //    watcher.Start();
+            //    geoCoordinate = watcher.Position.Location;
+            //    watcher.Stop();
+            //}
+
+
             //Code above should return the GeoCoordinate class object with current longitude and latitide
             //but it works not always because of the difference in Operation Systems and their settings 
-            //some might block program's request because of the security policy
-            //so if something doesn't work, we prepared hardcored Kirpichnaya 33 <3
+            //some might block tprogrm's request because of the security policy
+            //so we decided to hardcore Kirpichnaya 33 <3
 
             //_coordinate = new GeoCoordinate()
             //{

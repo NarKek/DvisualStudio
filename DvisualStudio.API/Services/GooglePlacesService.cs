@@ -23,7 +23,7 @@ namespace DvisualStudio.API.Services
                 {"type",category},
                 {"location",location},
                 {"radius",radius},
-                {"opennow","true"}
+                //{"opennow","true"}
             });
 
             try
