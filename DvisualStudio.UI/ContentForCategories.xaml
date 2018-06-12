@@ -26,35 +26,35 @@
                     Grid.ColumnSpan="3" Height="170" 
                         Style="{DynamicResource DefaultButtonStyle}" Click="CommonClick"  >
                     <Button.Background>
-                        <ImageBrush ImageSource="Images/xHLrGE9Y9Ow.jpg" />
+                        <ImageBrush ImageSource="Images/foodcategory.jpg" />
                     </Button.Background>
                 </Button>
                 <Button Name="ButtonConcerts"
                     Grid.ColumnSpan="3" Height="170"
                         Style="{DynamicResource DefaultButtonStyle}" Click="ConcertClick">
                     <Button.Background>
-                        <ImageBrush ImageSource="Images/pM-zjOS8dDk.jpg" />
+                        <ImageBrush ImageSource="Images/concertscategory.jpg" />
                     </Button.Background>
                 </Button>
                 <Button Name="ButtonBars"
                     Grid.ColumnSpan="3" Height="170"
                         Style="{DynamicResource DefaultButtonStyle}" Click="CommonClick">
                     <Button.Background>
-                        <ImageBrush ImageSource="Images/CeMQ2Q8kUpA.jpg" />
+                        <ImageBrush ImageSource="Images/barscategory.jpg" />
                     </Button.Background>
                 </Button>
                 <Button Name="ButtonCinema"
                     Grid.ColumnSpan="3" Height="170"
                         Style="{DynamicResource DefaultButtonStyle}" Click="CommonClick">
                     <Button.Background>
-                        <ImageBrush ImageSource="Images/CVux7Ne3f18.jpg" />
+                        <ImageBrush ImageSource="Images/cinemacategory.jpg" />
                     </Button.Background>
                 </Button>
                 <Button  Name="ButtonPark"
                     Grid.ColumnSpan="3" Height="170" 
                         Style="{DynamicResource DefaultButtonStyle}" Click="CommonClick">
                     <Button.Background>
-                        <ImageBrush ImageSource="Images/u9AlUT3nOKU.jpg" />
+                        <ImageBrush ImageSource="Images/parkscategory.jpg" />
                     </Button.Background>
                 </Button>
             </StackPanel>

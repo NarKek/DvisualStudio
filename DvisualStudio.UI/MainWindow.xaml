@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DvisualStudio.UI"
         mc:Ignorable="d"
-        Title="Categories" Height="736" Width="400" ResizeMode="NoResize" Source="ContentForCategories.xaml" ShowsNavigationUI="False">
+        Title="Dvisual Studio" Height="736" Width="400" ResizeMode="NoResize" Source="ContentForCategories.xaml" ShowsNavigationUI="False">
     
     
 </NavigationWindow>

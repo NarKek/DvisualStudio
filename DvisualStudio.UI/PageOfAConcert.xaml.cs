@@ -35,5 +35,15 @@ namespace DvisualStudio.UI
         {
             NavigationService.Content = new CertainPlaceSearchPage();
         }
+
+        private void GoToSiteClick(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start( ((sender as Button).Content as TextBlock).Text  );
+        }
+
+        private void OpenMapsClick(object sender, RoutedEventArgs e)
+        {
+            //opens map
+        }
     }
 }

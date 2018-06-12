@@ -47,5 +47,15 @@ namespace DvisualStudio.UI
             DataContext = getData;
             CommentControlOnLPlacePage.ItemsSource = getData.Reviews;
         }
+
+        private void GoToSiteClick(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(((sender as Button).Content as TextBlock).Text);
+        }
+
+        private void OpenMapsClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

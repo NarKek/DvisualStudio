@@ -102,6 +102,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MapsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageOfAConcert.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,6 +116,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MapsPage.xaml.cs">
+      <DependentUpon>MapsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageOfAConcert.xaml.cs">
       <DependentUpon>PageOfAConcert.xaml</DependentUpon>
     </Compile>
@@ -146,18 +153,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\xHLrGE9Y9Ow.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\pM-zjOS8dDk.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\CeMQ2Q8kUpA.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\CVux7Ne3f18.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\1button.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -165,9 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\3button.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\u9AlUT3nOKU.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\check.jpg" />
@@ -184,6 +176,21 @@
       <Project>{a1edd4a2-7937-4a31-8cb1-a6de54a7a4df}</Project>
       <Name>DvisualStudio.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\parkscategory.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cinemacategory.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\barscategory.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\concertscategory.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\foodcategory.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
