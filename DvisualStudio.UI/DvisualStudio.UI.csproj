@@ -102,10 +102,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MapsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PageOfAConcert.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,9 +112,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MapsPage.xaml.cs">
-      <DependentUpon>MapsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PageOfAConcert.xaml.cs">
       <DependentUpon>PageOfAConcert.xaml</DependentUpon>
     </Compile>

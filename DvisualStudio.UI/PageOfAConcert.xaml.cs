@@ -38,12 +38,14 @@ namespace DvisualStudio.UI
 
         private void GoToSiteClick(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start( ((sender as Button).Content as TextBlock).Text  );
-        }
-
-        private void OpenMapsClick(object sender, RoutedEventArgs e)
-        {
-            //opens map
+            try
+            {
+                System.Diagnostics.Process.Start(((sender as Button).Content as TextBlock).Text);
+            }
+            catch (System.Exception)
+            {
+                MessageBox.Show("Unable to redirect to the website");
+            }
         }
     }
 }

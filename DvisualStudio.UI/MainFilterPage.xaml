@@ -33,12 +33,12 @@
             <Button  Name="RefreshSettings"
                 HorizontalAlignment="Right" Margin="70 10 70 0" Width="90" Height="30" Background="Black" 
                     FontFamily="/DvisualStudio.UI;component/#Century Gothic" FontSize="20"
-                    Content="сброс" Foreground="#D69D85"
+                    Content="reset" Foreground="#D69D85"
                     Click="RefreshSettings_Click"/>
             <Button Name="SearchWithSettings"
                 HorizontalAlignment="Left" Margin="70 -30 0 0" Width="90" Height="30" Background="Black"
                     FontFamily="/DvisualStudio.UI;component/#Century Gothic" FontSize="20"
-                    Content="поиск" Foreground="#D69D85"
+                    Content="search" Foreground="#D69D85"
                     Click="SearchWithSettings_Click"/>
         </StackPanel>
 
