@@ -22,9 +22,18 @@ namespace DvisualStudio.API.Services
 
             try
             {
+                string strResult = string.Empty;
                 using (HttpClient client = new HttpClient())
                 {
-                    var strResult = client.GetStringAsync(Url).Result;
+                    try
+                    {
+                        strResult = client.GetStringAsync(Url).Result;
+                    }
+                    catch (System.Exception)
+                    {
+                        MessageBox.Show("Connection Error, check you internet connection and try again later");
+                        return null;
+                    }
 
                     var result = JsonConvert.DeserializeObject<DetailedGooglePlaceInfoResponse>(strResult).Result;
                     return result;
