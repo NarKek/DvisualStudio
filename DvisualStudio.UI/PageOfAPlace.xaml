@@ -23,6 +23,7 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Grid.ColumnSpan="3" Fill="#1e1e1e"/>
+        <Image Source="Images/logo.jpg" Grid.Column="1" Height="80" Margin="7 0 0 0"/>
         <Button Name="ButtonBackToListOfPlaces"
             Grid.Row="0" Grid.Column="0" Height="72" Panel.ZIndex="1"
                 Width="75" HorizontalAlignment="Left"
@@ -44,11 +45,11 @@
 
             <StackPanel Margin="0 10 0 0" Grid.Row="3" Grid.ColumnSpan="3">
             <Button Background="black" Style="{DynamicResource DefaultButtonStyle}" Height="30" BorderThickness="0" Click="GoToSiteClick" >
-                <TextBlock Background="Black" Text="{Binding WebSite}" Width="400"  Padding="20 7 0 0" FontSize="10" Foreground="White" Height="30" TextAlignment="Left"/>
+                <TextBlock Background="Black" Text="{Binding WebSite}" Width="400"  Padding="20 7 0 0" FontSize="12" Foreground="White" Height="30" TextAlignment="Left"/>
             </Button>
-            <TextBlock Background="Black" Margin="0 10 0 0" Text="{Binding PhoneNumber}" Padding="20 3 0 0" FontSize="20" Foreground="White"  Height="30"/>
+            <TextBlock Background="Black" Margin="0 10 0 0" Text="{Binding PhoneNumber}" Padding="20 2 0 0" FontSize="20" Foreground="White"  Height="30"/>
             <Button Background="Black" Margin="0 10 0 0" Height="30" BorderThickness="0" Style="{DynamicResource DefaultButtonStyle}">
-                <TextBlock Background="Black"  Text="{Binding Address}" FontSize="13" Padding="20 4 0 0" Foreground="White" Width="400" Height="30"/>
+                <TextBlock Background="Black"  Text="{Binding Address}" FontSize="13" Padding="20 5 0 0" Foreground="White" Width="400" Height="30"/>
             </Button>
         </StackPanel>
             <ScrollViewer Name="scroll" ScrollViewer.VerticalScrollBarVisibility="Hidden" Grid.ColumnSpan="3" Grid.Row="4"  Background="#333333" 

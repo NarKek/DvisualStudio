@@ -20,7 +20,10 @@
             <RowDefinition Height="75*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
+
+        
         <Rectangle Grid.ColumnSpan="3" Fill="#1e1e1e" />
+        <Image Source="Images/logo.jpg" Grid.Column="1" Height="80" Margin="7 0 0 0"/>
         <Rectangle Grid.ColumnSpan="3" Grid.Row="1" Fill="#1e1e1e" />
         <Border Grid.Row="1" Grid.ColumnSpan="3" Margin="25 7 22 7" 
             BorderThickness="1" BorderBrush="DarkGray" Background="White" CornerRadius="12" Height="23">
@@ -66,8 +69,8 @@
                                 Click="CommonClick">
                             <DockPanel  Height="120" Width="340" Background="White" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                                 <Image  DockPanel.Dock="Left" Source="{Binding Photo}" Height="100" Width="80" Margin="10 3 0 3" />
-                                <TextBlock Text="{Binding Name}"  DockPanel.Dock="Top" TextWrapping="WrapWithOverflow" Margin="10 8 0 10" FontSize="20" Foreground="#D69D85"  Height="50"/>
-                                <TextBlock Text="{Binding Address}" TextWrapping="WrapWithOverflow" DockPanel.Dock="Top"  Margin="-30 3 40 -6" FontSize="12"  Width="160" />
+                                <TextBlock Text="{Binding Name}"  DockPanel.Dock="Top" TextWrapping="WrapWithOverflow" Margin="10 8 0 3" FontSize="20" Foreground="#D69D85" Width="230"/>
+                                <TextBlock Text="{Binding Address}" TextWrapping="WrapWithOverflow" DockPanel.Dock="Top"  Margin="-30 0 40 -6" FontSize="14"  Width="160" />
                                 <TextBlock Text="{Binding Rating}" TextWrapping="WrapWithOverflow" DockPanel.Dock="Right"  Width="50" Height="50" Margin="130 -65 -40 10" FontSize="30" Foreground="#4EC9B0" />
                             </DockPanel>
                         </Button>

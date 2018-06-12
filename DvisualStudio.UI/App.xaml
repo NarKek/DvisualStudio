@@ -86,8 +86,11 @@
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily"  Value="/DvisualStudio.UI;component/#Century Gothic"/>
         </Style>
-        
-        
+        <Style TargetType="Label">
+            <Setter Property="FontFamily"  Value="/DvisualStudio.UI;component/#Century Gothic"/>
+        </Style>
+
+
 
     </Application.Resources>
 </Application>
