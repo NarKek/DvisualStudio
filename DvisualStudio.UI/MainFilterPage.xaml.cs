@@ -68,7 +68,9 @@ namespace DvisualStudio.UI
         {
             ItemsControlOnPMainFilterPage.ItemsSource = null;
             LoadingLabel.Visibility = Visibility.Visible;
-            ItemsControlOnPMainFilterPage.ItemsSource = await sm.SearchWithParameters(PriceComboBox.SelectedItem as string, CategoryComboBox.SelectedItem as string, RatingComboBox.SelectedItem as int?, OpenOrNotComboBox.SelectedItem as string);
+            ItemsControlOnPMainFilterPage.ItemsSource = await 
+                sm.SearchWithParameters(PriceComboBox.SelectedItem as string, CategoryComboBox.SelectedItem as string,
+                    RatingComboBox.SelectedItem as int?, OpenOrNotComboBox.SelectedItem as string);
             LoadingLabel.Visibility = Visibility.Hidden;
         }
 

@@ -42,7 +42,7 @@ namespace DvisualStudio.Core
             List<Concert> concerts = new List<Concert>();
             foreach (var e in events)
             {
-                concerts.Add(transformer.TransformEventToConcert(e));
+                concerts.Add(item : transformer.TransformEventToConcert(e));
             }
             return concerts;
         }
@@ -56,7 +56,7 @@ namespace DvisualStudio.Core
 
             foreach (var r in result)
             {
-                places.Add(transformer.TransformAPINerabyPlaceToPlace(r));
+                places.Add(transformer.TransformAPINerabyPlaceToPlace(gp : r));
             }
             return places;
         }
@@ -66,7 +66,7 @@ namespace DvisualStudio.Core
             IDetailedPlaceInfoService dps = new DetailedGooglePlaceService();
             var result = await Task.Factory.StartNew(() => dps.GetInformationAboutSelectedPlace(place.Id));
 
-            return transformer.TransformDetailedPlaceToPlace(result, place);
+            return transformer.TransformDetailedPlaceToPlace(dgp : result, place :place);
         }
 
         public async Task<IEnumerable<Place>> SearchWithParameters(string priceLevel, string category, int? rating, string openNow)
@@ -105,7 +105,7 @@ namespace DvisualStudio.Core
 
             foreach (var gtp in result)
             {
-                places.Add(transformer.TransformTextPlaceToPlace(gtp));
+                places.Add(item : transformer.TransformTextPlaceToPlace(gtp));
             }
             return places;
         }

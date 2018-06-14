@@ -54,7 +54,7 @@ namespace DvisualStudio.UI
 
         private async void LoadData()
         {
-            var getData = await sm.GetPlacesByCategory(searchCategory);
+            var getData = await sm.GetPlacesByCategory(category : searchCategory);
             ItemsControlOnListPage.ItemsSource = getData;
             LoadingLabel.Visibility = Visibility.Hidden;
         }
