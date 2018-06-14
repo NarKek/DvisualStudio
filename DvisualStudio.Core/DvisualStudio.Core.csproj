@@ -44,11 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ITransformer.cs" />
-    <Compile Include="JSONConcertRepository.cs" />
-    <Compile Include="Factory.cs" />
-    <Compile Include="Helpers\JSONReader.cs" />
     <Compile Include="Helpers\Transformer.cs" />
-    <Compile Include="Interfaces\IConcertRepository.cs" />
     <Compile Include="Model\Concert.cs" />
     <Compile Include="Model\DetailedPlace.cs" />
     <Compile Include="Model\Place.cs" />
@@ -56,9 +52,6 @@
     <Compile Include="Helpers\ServiceManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Data\concerts.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

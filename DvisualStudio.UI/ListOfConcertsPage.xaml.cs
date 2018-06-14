@@ -33,8 +33,8 @@ namespace DvisualStudio.UI
         private async void LoadData()
         {
             var getData = await sm.GetConcerts();
+            ItemsControlOnConcertPage.ItemsSource = getData.Where(c => c.Date >= DateTime.Now).OrderBy(c => c.Date);
             LoadingLabel.Visibility = Visibility.Hidden;
-            ItemsControlOnConcertPage.ItemsSource = getData.Where(c=>c.Date >= DateTime.Now).OrderBy(c => c.Date);
         }
     }
 }

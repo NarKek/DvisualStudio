@@ -41,7 +41,7 @@ namespace DvisualStudio.Core.Helpers.Transformers
             return location;
         }
 
-        public Concert TransfromJsonEventToConcert(Event e)
+        public Concert TransformEventToConcert(Event e)
         {
             Concert concert = new Concert()
             {

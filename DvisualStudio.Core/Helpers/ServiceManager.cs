@@ -1,4 +1,5 @@
-﻿using DvisualStudio.API.DTO.GooglePlacesTextSearchAPI;
+﻿using DvisualStudio.API.DTO.ConcertInfo;
+using DvisualStudio.API.DTO.GooglePlacesTextSearchAPI;
 using DvisualStudio.API.Interfaces;
 using DvisualStudio.API.Services;
 using DvisualStudio.Core.Helpers.Transformers;
@@ -35,8 +36,15 @@ namespace DvisualStudio.Core
 
         public async Task<IEnumerable<Concert>> GetConcerts()
         {
-            IConcertRepository repo = await Task.Factory.StartNew(() => Factory.Instance.GetRepository());
-            return repo.Concerts;
+            IEventsService es = new ActionListEventsService();
+            IEnumerable<Event> events = await Task.Factory.StartNew(() => es.GetEvents());
+
+            List<Concert> concerts = new List<Concert>();
+            foreach (var e in events)
+            {
+                concerts.Add(transformer.TransformEventToConcert(e));
+            }
+            return concerts;
         }
 
         public async Task<IEnumerable<Place>> GetPlacesByCategory(string category)

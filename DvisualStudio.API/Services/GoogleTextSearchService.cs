@@ -36,7 +36,7 @@ namespace DvisualStudio.API.Services
                     catch (System.Exception)
                     {
                         MessageBox.Show("Connection Error, check you internet connection and try again later");
-                        return null;
+                        return new List<GoogleTextSearchPlace>();
                     }
 
                     var result = JsonConvert.DeserializeObject<GoogleTextSearchResponse>(strResult);

@@ -8,7 +8,7 @@ namespace DvisualStudio.Core.Interfaces
 {
     public interface ITransformer
     {
-       Concert TransfromJsonEventToConcert(Event e);
+       Concert TransformEventToConcert(Event e);
        Place TransformTextPlaceToPlace(GoogleTextSearchPlace gtp);
 
        Place TransformAPINerabyPlaceToPlace(GooglePlace gp);

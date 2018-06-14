@@ -66,6 +66,7 @@ namespace DvisualStudio.UI
 
         private async void SearchWithSettings_Click(object sender, RoutedEventArgs e)
         {
+            ItemsControlOnPMainFilterPage.ItemsSource = null;
             LoadingLabel.Visibility = Visibility.Visible;
             ItemsControlOnPMainFilterPage.ItemsSource = await sm.SearchWithParameters(PriceComboBox.SelectedItem as string, CategoryComboBox.SelectedItem as string, RatingComboBox.SelectedItem as int?, OpenOrNotComboBox.SelectedItem as string);
             LoadingLabel.Visibility = Visibility.Hidden;
